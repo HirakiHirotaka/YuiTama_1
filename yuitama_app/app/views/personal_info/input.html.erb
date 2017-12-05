@@ -1,0 +1,15 @@
+<%=
+  init do |t|
+  t.div do
+	t.h2 'ウチナーンチュ登録画面'
+	t.p 'ウチナーンチュ登録の際の個人情報登録画面'
+	t.ul do
+	  t.li 'リスト1'
+	  t.li 'リスト2'
+	  t.li 'リスト3'
+	end
+  end
+  end
+%>
+<%= button_to "homeへ戻る", {:controller => 'home', :action => 'index'}, :method => :get %>
+<%= button_to "登録完了確認", {:controller => 'personal_info', :action => 'regiComp'}, :method => :get %>
