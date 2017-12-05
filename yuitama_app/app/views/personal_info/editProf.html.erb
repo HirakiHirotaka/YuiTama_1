@@ -1,0 +1,40 @@
+<%=
+  init do |t|
+	t.div(id: 'wrapper') do
+	  t.div(id: 'temp') do
+
+		t.div(id: 'header') do
+		  t.h1 'YuiTama'
+		  t.p 'サイトの説明だってさ'
+		  t.p 'ゆいたまのさいとだよ'
+		end
+
+		t.div(id: 'menu') do
+		  t.ul do
+			t.li 'menu1'
+			t.li 'menu2'
+			t.li 'menu3'
+		  end
+		end
+
+		t.div(id: 'contents') do
+		  t.div(id: 'main') do
+			t.h2 'ウチナーンチュのプロフィール情報編集画面'
+			t.p 'ウチナーンチュのプロフィール情報を編集できるようにしたいなー'
+			t.ul do
+			  t.li 'リスト1'
+			  t.li 'リスト2'
+			  t.li 'リスト3'
+			end
+		  end
+
+		end
+
+	  end
+	end
+  end
+%>
+
+
+<%= button_to "homeへ", {:controller => 'home', :action => 'index'}, :method => :get %>
+<%= button_to "MyPageへ", {:controller => 'personal_info', :action => 'mypage'}, :method => :get %>
