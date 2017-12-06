@@ -1,11 +1,10 @@
-<%= stylesheet_link_tag "sample", :media => "all" %>
 
 <%=
   init do |t|
 	t.div(id: 'wrapper') do
 	  t.div(id: 'temp') do
 
-		t.div(id: 'header') do
+		t.div(class: 'text-center', id: 'header') do
 		  t.h1 'YuiTama'
 		  t.p 'サイトの説明だってさ'
 		  t.p 'ゆいたまのさいとだよ'
@@ -38,6 +37,17 @@
 			end
 		  end
 
+		end
+
+		t.table(:class => 'table table-striped') do
+		  t.tr do
+			t.th 'Family Name'
+			t.th 'Given Name'
+		  end
+		  t.tr do
+			t.th 'Alpaca'
+			t.th 'maybeOkapi'
+		  end
 		end
 
 	  end
