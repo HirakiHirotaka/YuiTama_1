@@ -1,57 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-<%=
-  init do |t|
-	t.div(id: 'wrapper') do
-	  t.div(id: 'temp') do
+    <title>Jumbotron Template for Bootstrap</title>
 
-		t.div(class: 'text-center', id: 'header') do
-		  t.h1 'YuiTama'
-		  t.p 'サイトの説明だってさ'
-		  t.p 'ゆいたまのさいとだよ'
-		end
+    <!-- Bootstrap core CSS -->
+    <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 
-		t.div(id: 'menu') do
-		  t.ul do
-			t.li 'menu1'
-			t.li 'menu2'
-			t.li 'menu3'
-		  end
-		end
+    <!-- Custom styles for this template -->
+    <link href="https://getbootstrap.com/docs/4.0/examples/jumbotron/jumbotron.css" rel="stylesheet">
+  </head>
 
-		t.div(id: 'contents') do
-		  t.div(id: 'main') do
-			t.h2 'ホーム画面'
-			t.p 'ウチナーンチュとユーザ共通のホーム画面'
-			t.ul do
-			  t.li 'リスト1'
-			  t.li 'リスト2'
-			  t.li 'リスト3'
-			end
-		  end
+  <body>
+    <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #90caf9;">
+      <a class="navbar-brand" href="#">
+      <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" class="d-inline-block align-top" alt="">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-		  t.div(id: 'sub') do
-			t.h2 '更新履歴でも書く？'
-			t.dl do
-			  t.dt '2017/12/5'
-			  t.dd 'え、更新履歴書きたい？ww'
-			end
-		  end
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">ホーム <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">プラン一覧</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="#">プラン登録</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">よくあるご質問</a>
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link" href="#">お問い合わせ</a>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
 
-		end
+    <!-- Main jumbotron for a primary marketing message or call to action -->
+    <header class="jumbotron">
+      <div class="container">
+        <h1 class="display-3">Yui・Tama</h1>
+        <p>あなたが訪れるたびに、新たな沖縄に出会えます。<br>Yui・Tamaは一歩先の旅を、最高の旅をあなたにお届けします。</p>
+        <p><a class="btn btn-primary btn-lg" href="#" role="button">ログイン &raquo;</a></p>
+      </div>
+    </header>
 
-		t.table(:class => 'table table-striped') do
-		  t.tr do
-			t.th 'Family Name'
-			t.th 'Given Name'
-		  end
-		  t.tr do
-			t.th 'Alpaca'
-			t.th 'maybeOkapi'
-		  end
-		end
+    <div class="container">
+      <!-- Example row of columns -->
+      <div class="row">
+        <div class="col-md-4">
+            <div class="alert alert-info" role="alert">
+          <h2>プランを探す</h2>
+          <p class="text-dark">あなた様が気になる<strong>カテゴリ</strong>をクリックして、<strong>お気に入りのプラン</strong>を見つけましょう。<br>ここに表示されているカテゴリ以外にも様々なカテゴリのプランをご用意しております。</p>
+          <p class="text-dark"><a class="btn btn-warning" href="#" role="button">観光名所 &raquo;</a>
+          <br>沖縄には歴史的な建造物や、風情ある観光名所がたくさんあります。<br>是非一度訪れてみてはいかがでしょうか？</p>
+          <p class="text-dark"><a class="btn btn-warning" href="#" role="button">自然 &raquo;</a>
+          <br>綺麗な海や車で行ける小さな離島など、沖縄は豊かな自然で溢れています。<br>リフレッシュをしたい方にオススメのプランをご用意しております。</p>
+          <p class="text-dark"><a class="btn btn-warning" href="#" role="button">グルメ &raquo;</a>
+          <br>現地のコンシェルジュたちがオススメする<br>様々な沖縄料理を楽しめるプランを多数ご用意しております。</p>
+        </div>
+        </div>
+        <div class="col-md-4">
+            <div class="alert alert-success" role="alert">
+          <h2>プランを作る</h2>
+          <p class="text-dark">プランを考えて<strong>沖縄の魅力</strong>を伝えてみませんか？</p>
+          <p><a class="btn btn-secondary" href="#" role="button">プラン登録 &raquo;</a></p>
+        </div>
+        </div>
+        <div class="col-md-4">
+            <div class="alert alert-warning" role="alert">
+          <h2>FAQ</h2>
+          <p class="text-dark">あなた様が抱いている<strong>疑問</strong>を解消することができるかもしれません。</p>
+          <p><a class="btn btn-secondary" href="#" role="button">よくあるご質問 &raquo;</a></p>
+        </div>
+        </div>
+        <div class="col-md-4">
+            <div class="alert alert-danger" role="alert">
+          <h2>お問い合わせ</h2>
+          <form>
+            <div class="form-group">
+                <label for="name">お名前:</label>
+                <input type="text" id="name" class="form-control">
+            </div>
+            <div class="form-group">
+                <label for="description">お問い合わせ内容:</label>
+                <textarea id="description" class="form-control"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="selection">うちなーんちゅですか？旅行者ですか？:</label>
+                <select id="selection" class="form-control">
+                  <option>うちなーんちゅ
+                  <option>旅行者
+                </select>
+            </div>
+            <input type="button" class="btn btn-primary" value="送信">
+         </form>
+        </div>
+        </div>
+      </div>
 
-	  end
-	end
-  end
-%>
-<%= button_to "ウチナーンチュ登録", {:controller => 'personal_info', :action => 'input'}, :method => :get %>
+      <hr>
+
+    <!-- footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-10 col-lg-offset-1 text-center">
+                    <h4><strong>Yui・Tama</strong>
+                    </h4>
+                    <p>沖縄県OO市XX<br>OOビルX階</p>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-phone fa-fw"></i> (123) 456-7890</li>
+                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:name@example.com">name@example.com</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <ul class="list-inline">
+                        <li>
+                            <a href="#"><i class="fa fa-facebook fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-twitter fa-fw fa-3x"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-dribbble fa-fw fa-3x"></i></a>
+                        </li>
+                    </ul>
+                    <hr class="small">
+                    <p class="text-muted">Copyright &copy; Your Website 2017</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    </div> <!-- /container -->
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+  <script>/** JS：Area */
