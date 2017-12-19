@@ -1,0 +1,2 @@
+class Utinaantyu < ApplicationRecord
+end

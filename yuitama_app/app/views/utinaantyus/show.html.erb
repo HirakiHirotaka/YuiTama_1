@@ -1,0 +1,21 @@
+<%= content_for(:maincontent) do %>
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @utinaantyu.name %>
+</p>
+
+<p>
+  <strong>Age:</strong>
+  <%= @utinaantyu.age %>
+</p>
+
+<p>
+  <strong>Mailaddress:</strong>
+  <%= @utinaantyu.mailaddress %>
+</p>
+
+<%= link_to 'Edit', edit_utinaantyu_path(@utinaantyu) %> |
+<%= link_to 'Back', utinaantyus_path %>
+<% end %>
