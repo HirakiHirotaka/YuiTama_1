@@ -18,7 +18,7 @@
       <!--
         /＊ここに調整CSS記述＊/
         .jumbotron {
-          background:url(/Users/hirakihirotaka/Desktop/YuiTama_1/yuitama_app/app/assets/images/header.jpg)
+          background: url(/Users/hirakihirotaka/Desktop/YuiTama_1/yuitama_app/app/assets/images/header.jpg)
           center no-repeat;
           background-size:
           cover;
@@ -69,41 +69,69 @@
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <header class="jumbotron">
       <div class="container">
+      <div class="col-md-12">
         <h1 class="display-3">Yui・Tama</h1>
         <p>あなたが訪れるたびに、新たな沖縄に出会えます。<br>Yui・Tamaは一歩先の旅を、最高の旅をあなたにお届けします。</p>
         <p><a class="btn btn-primary btn-lg" href="#" role="button">ログイン &raquo;</a></p>
+      </div>
       </div>
     </header>
 
     <div class="container">
       <!-- Example row of columns -->
       <div class="row">
-        <div class="col-md-4">
-            <div class="alert alert-info" role="alert">
-          <h2>プランを探す</h2>
-          <p class="text-dark">あなた様が気になる<strong>カテゴリ</strong>をクリックして、<strong>お気に入りのプラン</strong>を見つけましょう。<br>ここに表示されているカテゴリ以外にも様々なカテゴリのプランをご用意しております。</p>
-          <p class="text-dark"><a class="btn btn-warning" href="#" role="button">観光名所 &raquo;</a>
-          <br>沖縄には歴史的な建造物や、風情ある観光名所がたくさんあります。<br>是非一度訪れてみてはいかがでしょうか？</p>
-          <p class="text-dark"><a class="btn btn-warning" href="#" role="button">自然 &raquo;</a>
-          <br>綺麗な海や車で行ける小さな離島など、沖縄は豊かな自然で溢れています。<br>リフレッシュをしたい方にオススメのプランをご用意しております。</p>
-          <p class="text-dark"><a class="btn btn-warning" href="#" role="button">グルメ &raquo;</a>
-          <br>現地のコンシェルジュたちがオススメする<br>様々な沖縄料理を楽しめるプランを多数ご用意しております。</p>
-        </div>
-        </div>
+      <div class="col-md-4">
+          <div class="alert alert-info" role="alert">
+        <h2>プランを探す</h2>
+        <p class="text-dark">あなた様が気になる<strong>カテゴリ</strong>をクリックして、<strong>お気に入りのプラン</strong>を見つけましょう。<br>ここに表示されているカテゴリ以外にも様々なカテゴリのプランをご用意しております。</p>
+            <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="https://www.photock.jp/photo/middle/photo0000-1642.jpg" alt="Card image cap">
+            <div class="card-body">
+            <h4 class="card-title">観光地</h4>
+            <p class="card-text">沖縄には歴史的な建造物や、風情ある観光名所がたくさんあります。<br>
+                                  是非一度訪れてみてはいかがでしょうか？</p>
+                                  <a href="#" class="btn btn-primary btn-lg">観光地のプラン一覧</a>
+                                  </div>
+                                  </div>
+
+            <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="https://www.photock.jp/photo/middle/photo0000-1984.jpg" alt="Card image cap">
+            <div class="card-body">
+            <h4 class="card-title">自然</h4>
+            <p class="card-text">綺麗な海や車で行ける小さな離島など、沖縄は豊かな自然で溢れています。<br>
+                                  リフレッシュをしたい方にオススメのプランをご用意しております。
+                                  <a href="#" class="btn btn-primary btn-lg">自然のプラン一覧</a>
+                                  </div>
+                                  </div>
+
+            <div class="card" style="width: 20rem;">
+            <img class="card-img-top" src="https://d1f5hsy4d47upe.cloudfront.net/79/798ccb9c0c1e8e7589b778e9a0eeae1c_t.jpeg" alt="Card image cap">
+            <div class="card-body">
+            <h4 class="card-title">グルメ</h4>
+            <p class="card-text">現地のコンシェルジュたちがオススメする<br>
+                                  様々な沖縄料理を楽しめるプランを多数ご用意しております。
+                                  <a href="#" class="btn btn-primary btn-lg">グルメのプラン一覧</a>
+                                  </div>
+                                  </div>
+      </div>
+      </div>
+
         <div class="col-md-4">
             <div class="alert alert-success" role="alert">
           <h2>プランを作る</h2>
           <p class="text-dark">プランを考えて<strong>沖縄の魅力</strong>を伝えてみませんか？</p>
-          <p><a class="btn btn-secondary" href="#" role="button">プラン登録 &raquo;</a></p>
+          <p><a class="btn btn-secondary btn-lg" href="#" role="button">プラン登録 &raquo;</a></p>
         </div>
         </div>
+
         <div class="col-md-4">
             <div class="alert alert-warning" role="alert">
           <h2>FAQ</h2>
           <p class="text-dark">あなた様が抱いている<strong>疑問</strong>を解消することができるかもしれません。</p>
-          <p><a class="btn btn-secondary" href="#" role="button">よくあるご質問 &raquo;</a></p>
+          <p><a class="btn btn-secondary btn-lg" href="#" role="button">よくあるご質問 &raquo;</a></p>
         </div>
         </div>
+
         <div class="col-md-4">
             <div class="alert alert-danger" role="alert">
           <h2>お問い合わせ</h2>
@@ -123,7 +151,7 @@
                   <option>旅行者
                 </select>
             </div>
-            <input type="button" class="btn btn-primary" value="送信">
+            <input type="button" class="btn btn-primary btn-lg" value="送信">
          </form>
         </div>
         </div>
