@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  resources :utinaantyus
   root 'home#index'
   # ホーム画面
   get 'home/index'
+  # ホームからログイン画面
+  get 'home/login'
   # 個人情報登録画面
   get 'personal_info/input'
   # 個人情報登録完了画面
