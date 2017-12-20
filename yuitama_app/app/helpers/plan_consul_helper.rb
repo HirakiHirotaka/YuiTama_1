@@ -1,0 +1,2 @@
+module PlanConsulHelper
+end
