@@ -1,5 +1,6 @@
 class ProvidePlanController < ApplicationController
   def planInput
+	redirect_to "/plans/new"
   end
 
   def regiComp

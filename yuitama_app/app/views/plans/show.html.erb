@@ -1,0 +1,21 @@
+<%= content_for(:maincontent)  do %>
+  <p id="notice"><%= notice %></p>
+
+  <p>
+  <strong>Content:</strong>
+  <%= @plan.content %>
+  </p>
+
+  <p>
+  <strong>Image:</strong>
+  <%= image_tag show_image_plan_path(@plan) %>
+  </p>
+
+  <p>
+  <strong>Creator:</strong>
+  <%= @plan.creator_id %>
+  </p>
+
+  <%= link_to 'Edit', edit_plan_path(@plan) %> |
+  <%= link_to 'Back', plans_path %>
+<% end %>

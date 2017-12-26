@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  resources :plans
+  resources :plans do
+	member do
+	  get 'show_image'
+	end
+  end
+
   get 'accept_plan/planMylist'
   get 'accept_plan/planDetail'
   get 'accept_plan/planList'

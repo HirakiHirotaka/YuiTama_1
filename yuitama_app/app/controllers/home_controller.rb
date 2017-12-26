@@ -5,5 +5,6 @@ class HomeController < ApplicationController
   end
 
   def planHome
+	redirect_to "/plans"
   end
 end
