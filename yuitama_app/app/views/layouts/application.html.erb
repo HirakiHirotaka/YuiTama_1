@@ -21,6 +21,7 @@
 
 -->
 	</style>
+	<%= javascript_include_tag "application" %>
 
   </head>
   <body>
@@ -53,6 +54,10 @@
           <li class="nav-item active">
               <a class="nav-link" href="#">お問い合わせ</a>
           </li>
+          <li class="nav-item">
+            <%= Utinaantyu.find(session[:user_id]).name %>
+            さんようこそ
+          </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -60,7 +65,7 @@
         </form>
       </div>
     </nav>
-    
+
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <header class="jumbotron">
       <div class="container">
