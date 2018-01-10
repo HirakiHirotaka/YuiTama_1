@@ -45,6 +45,7 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">よくあるご質問</a>
+
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="#">Action</a>
               <a class="dropdown-item" href="#">Another action</a>
@@ -54,10 +55,19 @@
           <li class="nav-item active">
               <a class="nav-link" href="#">お問い合わせ</a>
           </li>
-          <li class="nav-item">
-            <%= Utinaantyu.find(session[:user_id]).name %>
-            さんようこそ
+
+          <li class="nav-item dropdown">
+            <% if session[:user_id]%>
+              <% currentuser = Utinaantyu.find(session[:user_id])%>
+              <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=Utinaantyu.find(session[:user_id]).name%>さんようこそ</a>
+            <%else%>
+              <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ゲストさんようこそ</a>
+            <%end%>
+            <div class="dropdown-menu" aria-labelledby="dropdown02">
+              <a class="dropdown-item" href="/login">ログイン</a>
+              <a class="dropdown-item" href="/logout" method="POST">ログアウト</a>
           </li>
+          
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
