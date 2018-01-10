@@ -24,14 +24,16 @@
 	  <div class="col-md-12">
 		<p>
 		<strong>Creator:</strong>
-		<%= @plan.creator_id %>
+		<%= link_to("#{Utinaantyu.find(@plan.creator_id).name}", "/utinaantyus/#{Utinaantyu.find(@plan.creator_id).id}" ) %>
 		</p>
 	  </div>
 	</div>
 
-	<%= link_to 'Edit', edit_plan_path(@plan) %> |
-	<%= link_to 'Destroy', @plan, method: :delete, data:{confirm: '本当に削除しますか？'}  %> |
-	<%= link_to 'Back', plans_path %>
+	</div>
+
+	<%= link_to 'プラン編集', edit_plan_path(@plan) %> |
+	<%= link_to 'プラン削除', @plan, method: :delete, data:{confirm: '本当に削除しますか？'}  %> |
+	<%= link_to 'プラン一覧へ', plans_path %>
   </div>
 
 

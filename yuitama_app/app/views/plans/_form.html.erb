@@ -23,16 +23,6 @@
 		</div>
 	  </div>
 
-	  <div class="field">
-		<div class="form-group">
-		  <%= form.label :creator_id %>
-		  <%= form.number_field :creator_id, id: :plan_creator_id ,:class => "form-control"%>
-		  <% if plan.errors.messages[:creator_id].any? %>
-			<span class=text-warning><%= plan.errors.messages[:creator_id][0] %></span>
-		  <% end %>
-		</div>
-	  </div>
-
 	  <div class="actions">
 		<%= form.submit %>
 	  </div>
