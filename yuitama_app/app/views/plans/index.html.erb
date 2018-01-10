@@ -1,0 +1,53 @@
+<%= content_for(:maincontent)  do %>
+<p id="notice"><%= notice %></p>
+
+<h1>Plans</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Content</th>
+      <th>Image</th>
+      <th>Creator</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <div class="container-fluid">
+	<div class="row">
+	  <% @plans.each do |plan| %>
+		  <div class="col-md-4">
+		<div class="card">
+			<% if plan.image != nil %>
+			  <%= link_to image_tag(show_image_plan_path(plan), class: "img-responsive card-img-top"), plan %>
+			<% else %>
+			  <%= link_to image_tag("no_image.png", class: "img-responsive card-img-top"), plan %>
+			<% end %>
+			<div class="card-body">
+			  <p class="card-title"><b>案内内容</b></p>
+			  <p class="card-text text-truncate"><%= plan.content %></p>
+			</div>
+		  </div>
+		</div>
+	  <% end %>
+	</div>
+  </div>
+
+	<tbody>
+    <% @plans.each do |plan| %>
+      <tr>
+        <td><%= plan.content %></td>
+        <td><%= link_to (image_tag show_image_plan_path(plan), size:"300x300"), plan %></td>
+        <td><%= plan.creator_id %></td>
+        <td><%= link_to 'Show', plan %></td>
+        <td><%= link_to 'Edit', edit_plan_path(plan) %></td>
+        <td><%= link_to 'Destroy', plan, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Plan', new_plan_path %>
+<% end %>
