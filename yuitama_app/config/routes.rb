@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  resources :plans
+  resources :plans do
+	member do
+	  get 'show_image'
+	end
+  end
+  post "login" => "utinaantyus#login"
+  get "login" => "utinaantyus#login_form"
+  post "logout" =>"utinaantyu#logout"
+
   get 'accept_plan/planMylist'
   get 'accept_plan/planDetail'
   get 'accept_plan/planList'
