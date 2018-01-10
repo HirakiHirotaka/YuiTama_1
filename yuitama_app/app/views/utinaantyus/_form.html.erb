@@ -1,5 +1,5 @@
 <%= content_for(:maincontent) do %>
-<%= form_with(model: utinaantyu, local: true) do |form| %>
+<%= form_with(model: utinaantyu, local: true, class:"form-horizontal") do |form| %>
   <% if utinaantyu.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(utinaantyu.errors.count, "error") %> prohibited this utinaantyu from being saved:</h2>
@@ -12,28 +12,38 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :utinaantyu_name %>
+<div class="form-group">
+    <%= form.label :name, class:"control-label col-md-2"%>
+  <div class=" col-md-10">
+    <%= form.text_field :name, id: :utinaantyu_name ,:class => "form-control"%>
   </div>
 
   <div class="field">
-    <%= form.label :age %>
-    <%= form.number_field :age, id: :utinaantyu_age %>
+    <%= form.label :age, class:"control-label col-md-2" %>
+  <div class=" col-md-10">
+    <%= form.number_field :age, id: :utinaantyu_age,:class => "form-control" %>
+  </div>
   </div>
 
   <div class="field">
-    <%= form.label :mailaddress %>
-    <%= form.text_field :mailaddress, id: :utinaantyu_mailaddress %>
+    <%= form.label :mailaddress, class:"control-label col-md-2" %>
+  <div class=" col-md-10">
+    <%= form.text_field :mailaddress, id: :utinaantyu_mailaddress,:class => "form-control" %>
+  </div>
   </div>
 
   <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password, id: :utinaantyu_password %>
+    <%= form.label :password, class:"control-label col-md-2" %>
+  <div class=" col-md-10">
+    <%= form.password_field :password, id: :utinaantyu_password,:class => "form-control" %>
   </div>
+  </div>
+</div>
 
   <div class="actions">
-    <%= form.submit %>
+    <div class="col-md-offset-2 col-md-10">
+    <%= form.submit class:"btn btn-primary btn-block"%>
+  </div>
   </div>
 <% end %>
 <% end %>
