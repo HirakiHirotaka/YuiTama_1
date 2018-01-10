@@ -1,0 +1,38 @@
+<%= content_for(:maincontent)  do %>
+  <p id="notice"><%= notice %></p>
+
+  <div class="container-fluid">
+	<div class="row">
+	  <div class="col-md-12">
+		<p>
+		<strong>Content:</strong>
+		<%= @plan.content %>
+		</p>
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-md-12">
+		<p>
+		<strong>Image:</strong>
+		<%= image_tag show_image_plan_path(@plan) %>
+		</p>
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-md-12">
+		<p>
+		<strong>Creator:</strong>
+		<%= @plan.creator_id %>
+		</p>
+	  </div>
+	</div>
+
+	<%= link_to 'Edit', edit_plan_path(@plan) %> |
+	<%= link_to 'Destroy', @plan, method: :delete, data:{confirm: '本当に削除しますか？'}  %> |
+	<%= link_to 'Back', plans_path %>
+  </div>
+
+
+<% end %>

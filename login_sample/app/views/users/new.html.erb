@@ -1,0 +1,18 @@
+
+
+
+<% @user.errors.full_messages.each do |message| %>
+      <%= message %>
+<% end %>
+
+<%= form_tag("/users/create") do%>
+
+<p>name</p>
+<input name="name" value="<%= @user.name%>">
+
+<p>email</p>
+<input name="email" value="<%= @user.email%>">
+
+<input type="submit" value="register">
+
+<%end%>

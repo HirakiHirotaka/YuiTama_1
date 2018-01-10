@@ -1,0 +1,21 @@
+<%= content_for(:maincontent) do %>
+
+<%= form_tag("/login") do |form| %>
+  <div id="form-error">
+    <%= @error_message %>
+  </div>
+
+  <div class="field">
+    <%= label_tag :mailaddress, "メールアドレス" %>
+    <%= text_field_tag :mailaddress, params[:mailaddress] %>
+  </div>
+  <div class="field">
+    <%= label_tag :password, "パスワード" %>
+    <%= password_field_tag :password, params[:password] %>
+  </div>
+
+  <div class="actions">
+    <%= submit_tag %>
+  </div>
+<% end %>
+<% end %>
