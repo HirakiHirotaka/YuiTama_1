@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   end
   post "login" => "utinaantyus#login"
   get "login" => "utinaantyus#login_form"
-  post "logout" =>"utinaantyu#logout"
+  get "logout" =>"utinaantyus#logout"
 
   get 'accept_plan/planMylist'
   get 'accept_plan/planDetail'

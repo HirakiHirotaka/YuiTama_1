@@ -1,10 +1,15 @@
 class PlansController < ApplicationController
-  before_action :set_plan, only: [:show, :edit, :update, :destroy]
+  before_action :set_plan, only: [:show, :edit, :updat, :destroy]
+  before_action :set_currentuser
+  before_action :authenticate_user, only: [:edit, :update]
+  before_action :ensure_currect_user, only: [:edit, :update, :destroy]
+
 
   # GET /plans
   # GET /plans.json
   def index
     @plans = Plan.all
+    @counter = 1
   end
 
   # GET /plans/1
@@ -33,7 +38,7 @@ class PlansController < ApplicationController
 	image = plan_params[:image]
 	plan = {}
 	plan[:content] = plan_params[:content]
-	plan[:creator_id] = plan_params[:content]
+	plan[:creator_id] = session[:user_id]
 	if image != nil
 	  plan[:image] = image.read
 	end
@@ -81,6 +86,25 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:content, :image, :creator_id)
+      params.require(:plan).permit(:content, :image)
     end
+
+    def set_currentuser
+      @currentuser = Utinaantyu.find_by(id: session[:user_id])
+    end
+
+    def authenticate_user
+      if @currentuser == nil
+        flash[:notice] = "ログインが必要です"
+        redirect_to("/login")
+      end
+    end
+
+    def ensure_currect_user
+      if @currentuser.id != @plan.creator_id
+        flash[:notice] = "権限がありません"
+        redirect_to("/plans")
+      end
+    end
+
 end
