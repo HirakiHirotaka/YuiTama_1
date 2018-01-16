@@ -1,6 +1,7 @@
 <%= content_for(:maincontent)  do %>
   ログイン
   <p><a class="btn btn-primary btn-lg" href="/utinaantyus/new" role="button">新規登録 &raquo;</a></p>
+      <%= link_to image_tag("newRegistration-button.png", class:"img-responsive", size:"250x75"), "/utinaantyus/new" %>
 <% end %>
 
 <!-- <%= button_to "homeへ戻る", {:controller => 'home', :action => 'index'}, :method => :get %>
