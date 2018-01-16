@@ -1,5 +1,9 @@
 class UtinaantyusController < ApplicationController
   before_action :set_utinaantyu, only: [:show, :edit, :update, :destroy]
+  before_action :set_currentuser
+  before_action :authenticate_user, only: [:edit, :update]
+  before_action :forbid_login_user, only: [:login, :new, :create, :login_form]
+  before_action :ensure_correct_user, only: [:edit, :update]
 
   # GET /utinaantyus
   # GET /utinaantyus.json
@@ -28,6 +32,7 @@ class UtinaantyusController < ApplicationController
 
     respond_to do |format|
       if @utinaantyu.save
+        session[:user_id] = @utinaantyu.id
         format.html { redirect_to @utinaantyu, notice: 'Utinaantyu was successfully created.' }
         format.json { render :show, status: :created, location: @utinaantyu }
       else
@@ -67,7 +72,7 @@ class UtinaantyusController < ApplicationController
     if @utinaantyu
       session[:user_id] = @utinaantyu.id
       flash[:notice] ="#{@utinaantyu.name}さんがログインしました。"
-      redirect_to("/utinaantyus")
+      redirect_to("/")
     else
       @error_message = "メールアドレスまたはパスワードが間違っています。"
       render("/utinaantyu/login_form")
@@ -88,6 +93,31 @@ class UtinaantyusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def utinaantyu_params
-      params.require(:utinaantyu).permit(:name, :age, :mailaddress,:password)
+      params.require(:utinaantyu).permit(:name, :age, :mailaddress, :password)
+    end
+
+    def set_currentuser
+      @currentuser = Utinaantyu.find_by(id: session[:user_id])
+    end
+
+    def authenticate_user
+      if @currentuser == nil
+        flash[:notice] = "ログインが必要です"
+        redirect_to("/login")
+      end
+    end
+
+    def forbid_login_user
+      if @currentuser
+        flash[:notice] = "すでにログインしています"
+        redirect_to("/plans")
+      end
+    end
+
+    def ensure_correct_user
+      if @currentuser == params[:id].to_i
+        flash[:notice] = "権限がありません"
+        redirect_to("/plans")
+      end
     end
 end
