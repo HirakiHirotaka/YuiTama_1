@@ -13,6 +13,30 @@
   <div class="header-logo">
     <%= link_to("TweetApp", "/") %>
   </div>
+
+
+
+  <% if @current_user %>
+      <li>
+        now logged in User is:
+        <!-- コードを追加し、ログイン中のユーザーのidを表示してください -->
+        <%= link_to(@current_user.name,"/users/#{@current_user.id}") %>
+        and User id :
+        <%= @current_user.id %>
+      </li>
+      <li>
+        <%= link_to("About TweetApp", "/about") %>
+      </li>
+      <li>
+        <%= link_to("User list", "/users/index") %>
+      </li>
+      <li>
+        <%= link_to("register","/signup")%>
+      </li>
+      <li>
+      <%= link_to("Logged Out", "/logout", {method: :post}) %>
+      </li>
+  <% else %>
   <ul class="header-menus">
     <li>
       <%= link_to("TweetAppとは", "/about") %>
@@ -23,7 +47,11 @@
     <li>
       <%= link_to("register","/signup")%>
     </li>
+    <li>
+      <%= link_to("logged in","/login")%>
+    </li>
   </ul>
+      <%end%>
 </header>
 
 <% if flash[:notice] %>
