@@ -27,7 +27,7 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #90caf9;">
       <a class="navbar-brand" href="#">
-      <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" class="d-inline-block align-top" alt="">
+      <%= link_to image_tag("top-button-logo.png", class:"img-responsive", size:"250x75") %>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -45,6 +45,7 @@
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">よくあるご質問</a>
+
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="#">Action</a>
               <a class="dropdown-item" href="#">Another action</a>
@@ -54,10 +55,19 @@
           <li class="nav-item active">
               <a class="nav-link" href="#">お問い合わせ</a>
           </li>
-          <li class="nav-item">
-            <%= Utinaantyu.find(session[:user_id]).name %>
-            さんようこそ
+
+          <li class="nav-item dropdown">
+            <% if session[:user_id]%>
+              <% currentuser = Utinaantyu.find(session[:user_id])%>
+              <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=Utinaantyu.find(session[:user_id]).name%>さんようこそ</a>
+            <%else%>
+              <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ゲストさんようこそ</a>
+            <%end%>
+            <div class="dropdown-menu" aria-labelledby="dropdown02">
+              <a class="dropdown-item" href="/login">ログイン</a>
+              <a class="dropdown-item" href="/logout" method="POST">ログアウト</a>
           </li>
+
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
@@ -72,6 +82,7 @@
         <h1 class="display-3">Yui・Tama</h1>
         <p>あなたが訪れるたびに、新たな沖縄に出会えます。<br>Yui・Tamaは一歩先の旅を、最高の旅をあなたにお届けします。</p>
         <p><a class="btn btn-primary btn-lg" href="/home/login" role="button">ログイン &raquo;</a></p>
+        <%= link_to image_tag("login-button.png", class:"img-responsive", size:"250x75"), "/login" %>
       </div>
     </header>
 

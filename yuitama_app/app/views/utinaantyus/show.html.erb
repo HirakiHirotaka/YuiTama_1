@@ -16,6 +16,8 @@
   <%= @utinaantyu.mailaddress %>
 </p>
 
-<%= link_to 'Edit', edit_utinaantyu_path(@utinaantyu) %> |
-<%= link_to 'Back', utinaantyus_path %>
+<%if @utinaantyu.id == @currentuser.id%>
+<%= link_to 'Edit', edit_utinaantyu_path(@utinaantyu) %>
+<%end%>
+
 <% end %>
