@@ -1,8 +1,15 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
+
+
+
+
 <h2><%= @user.name %></h2>
 <!-- 以下で、メールアドレスを出力してください -->
 <p><%= @user.email %></p>
+<% if @user.id == @current_user.id%>
+    <%= link_to("編集", "/users/#{@user.id}/edit") %>
+    <%end%>
 
-<%=link_to("edit","/users/#{@user.id}/edit")%>
+<p><!-- <img src="<¥%="/user_images/{画像名}" %>"> --> </p>
