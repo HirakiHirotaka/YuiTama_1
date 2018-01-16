@@ -14,6 +14,7 @@ class UtinaantyusController < ApplicationController
   # GET /utinaantyus/1
   # GET /utinaantyus/1.json
   def show
+    @counter = 0
   end
 
   # GET /utinaantyus/new

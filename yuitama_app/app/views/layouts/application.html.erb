@@ -65,9 +65,10 @@
             <%end%>
             <div class="dropdown-menu" aria-labelledby="dropdown02">
               <a class="dropdown-item" href="/login">ログイン</a>
+              <a class="dropdown-item" href="/utinaantyus/<%=session[:user_id]%>">マイページ</a>
               <a class="dropdown-item" href="/logout" method="POST">ログアウト</a>
           </li>
-          
+
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
