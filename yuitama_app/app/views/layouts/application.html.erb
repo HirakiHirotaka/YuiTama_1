@@ -27,7 +27,7 @@
   <body>
     <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #90caf9;">
       <a class="navbar-brand" href="#">
-      <img src="https://mdbootstrap.com/img/logo/mdb-transparent.png" height="30" class="d-inline-block align-top" alt="">
+      <%= link_to image_tag("top-button-logo.png", class:"img-responsive", size:"250x75") %>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -83,6 +83,7 @@
         <h1 class="display-3">Yui・Tama</h1>
         <p>あなたが訪れるたびに、新たな沖縄に出会えます。<br>Yui・Tamaは一歩先の旅を、最高の旅をあなたにお届けします。</p>
         <p><a class="btn btn-primary btn-lg" href="/home/login" role="button">ログイン &raquo;</a></p>
+        <%= link_to image_tag("login-button.png", class:"img-responsive", size:"250x75"), "/login" %>
       </div>
     </header>
 
