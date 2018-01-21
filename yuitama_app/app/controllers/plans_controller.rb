@@ -1,5 +1,5 @@
 class PlansController < ApplicationController
-  before_action :set_plan, only: [:show, :edit, :updat, :destroy]
+  before_action :set_plan, only: [:show, :edit, :update, :destroy]
   before_action :set_currentuser
   before_action :authenticate_user, only: [:edit, :update]
   before_action :ensure_currect_user, only: [:edit, :update, :destroy]
@@ -61,8 +61,12 @@ class PlansController < ApplicationController
   # PATCH/PUT /plans/1
   # PATCH/PUT /plans/1.json
   def update
+    plan = {}
+    plan = plan_params
+    plan[:creator_id] = @plan.creator_id
+
     respond_to do |format|
-      if @plan.update(plan_params)
+      if @plan.update(plan)
         format.html { redirect_to @plan, notice: 'Plan was successfully updated.' }
         format.json { render :show, status: :ok, location: @plan }
       else
@@ -90,7 +94,7 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:content, :image)
+      params.require(:plan).permit(:title, :content, :image)
     end
 
     def set_currentuser
