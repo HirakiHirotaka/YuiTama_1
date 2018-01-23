@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 	  get 'show_image'
 	end
   end
+  resources :comments
   post "login" => "utinaantyus#login"
   get "login" => "utinaantyus#login_form"
   get "logout" =>"utinaantyus#logout"

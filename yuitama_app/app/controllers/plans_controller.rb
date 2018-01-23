@@ -19,6 +19,8 @@ class PlansController < ApplicationController
   # GET /plans/1
   # GET /plans/1.json
   def show
+    @comment = @plan.comments.new
+    @comments = @plan.comments
   end
 
   def show_image
