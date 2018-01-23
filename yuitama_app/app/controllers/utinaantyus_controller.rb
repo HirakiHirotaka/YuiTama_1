@@ -76,7 +76,7 @@ class UtinaantyusController < ApplicationController
       redirect_to("/")
     else
       @error_message = "メールアドレスまたはパスワードが間違っています。"
-      render("/utinaantyu/login_form")
+      render("/utinaantyus/login_form")
     end
   end
 
