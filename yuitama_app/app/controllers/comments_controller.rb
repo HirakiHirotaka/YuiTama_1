@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.new(comment_params)
+    @comment.plan = Plan.find(params[:plan])
     respond_to do |format|
       if @comment.save
         format.html { redirect_to "/plans/#{params[:id]}", notice: 'Comment was successfully created.' }
