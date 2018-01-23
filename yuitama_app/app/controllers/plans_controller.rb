@@ -47,7 +47,7 @@ class PlansController < ApplicationController
   def create
 	image = plan_params[:image]
 	plan = {}
-	plan[:content] = plan_params[:content]
+  plan = plan_params
 	plan[:creator_id] = session[:user_id]
 	if image != nil
 	  plan[:image] = image.read
