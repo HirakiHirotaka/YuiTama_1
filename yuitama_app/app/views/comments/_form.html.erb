@@ -1,4 +1,4 @@
-<%= form_for(@comment, class:"form-horizontal") do |form| %>
+<%= form_for(@plan.comments.build, class:"form-horizontal") do |form| %>
 <div class="form-group">
   <div class="field">
     <%= form.label :content, class:"control-label col-md-2" %>
@@ -10,8 +10,7 @@
     <% end %>
   </div>
 
-  <%=comment.plan.id%>
-  <%=form.hidden_field :plan, value: comment.plan.id%>
+  <%=hidden_field_tag :plan_id, plan.id%>
 
   <div class="actions">
     <div class="col-md-offset-2 col-md-10">
@@ -19,5 +18,4 @@
     </div>
   </div>
 </div>
-<% @comment.plan = comment.plan%>
 <% end %>

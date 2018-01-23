@@ -1,4 +1,4 @@
 class Plan < ApplicationRecord
   validates :content, presence: true
-  has_many :comments, foreign_key: "id", dependent: :destroy
+  has_many :comments, dependent: :destroy
 end
