@@ -9,7 +9,11 @@ class PlansController < ApplicationController
   # GET /plans.json
   def index()
     if params[:search]
-      @plans = Plan.where(["content LIKE ?", "%#{params[:search]}%"])
+      if params[:selected_val] == "内容"
+        @plans = Plan.where(["content LIKE ?", "%#{params[:search]}%"]) #コンテント用
+      elsif params[:selected_val] == "ハッシュタグ"
+        @plans = Plan.where(["content LIKE ?", "%##{params[:search]}%"]) #ハッシュタグ用
+      end
     else
       @plans = Plan.all
     end
@@ -43,7 +47,7 @@ class PlansController < ApplicationController
   def create
 	image = plan_params[:image]
 	plan = {}
-	plan[:content] = plan_params[:content]
+  plan = plan_params
 	plan[:creator_id] = session[:user_id]
 	if image != nil
 	  plan[:image] = image.read
