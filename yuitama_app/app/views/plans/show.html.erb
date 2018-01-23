@@ -43,9 +43,10 @@
     <div class="row">
       <div class="col-md-12">
         <%= render(partial: "/comments/form", locals:{plan: @plan})%>
-        <%= render(partial: "/comments/index", collection:@comments)%>
       </div>
     </div>
+
+    <%= render(partial: "/comments/index", collection:@comments)%>
 
 	</div>
 
