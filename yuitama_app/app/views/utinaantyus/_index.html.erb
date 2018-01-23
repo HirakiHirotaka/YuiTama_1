@@ -1,0 +1,33 @@
+<%= content_for(:maincontent) do %>
+<p id="notice"><%= notice %></p>
+
+<h1>Utinaantyus</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Mailaddress</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @utinaantyus.each do |utinaantyu| %>
+      <tr>
+        <td><%= utinaantyu.name %></td>
+        <td><%= utinaantyu.age %></td>
+        <td><%= utinaantyu.mailaddress %></td>
+        <td><%= link_to 'Show', utinaantyu %></td>
+        <td><%= link_to 'Edit', edit_utinaantyu_path(utinaantyu) %></td>
+        <td><%= link_to 'Destroy', utinaantyu, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Utinaantyu', new_utinaantyu_path %>
+<%end%>
