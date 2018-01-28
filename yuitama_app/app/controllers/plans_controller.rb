@@ -8,16 +8,18 @@ class PlansController < ApplicationController
   # GET /plans
   # GET /plans.json
   def index()
+    @counter = 0
     if params[:search]
       if params[:selected_val] == "内容"
         @plans = Plan.where(["content LIKE ?", "%#{params[:search]}%"]) #コンテント用
+        render
       elsif params[:selected_val] == "ハッシュタグ"
         @plans = Plan.where(["content LIKE ?", "%##{params[:search]}%"]) #ハッシュタグ用
+        render
       end
     else
       @plans = Plan.all
     end
-    @counter = 0
   end
 
   # GET /plans/1
