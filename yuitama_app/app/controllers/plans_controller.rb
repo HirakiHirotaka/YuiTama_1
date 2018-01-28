@@ -102,7 +102,7 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:title, :content, :image)
+      params.require(:plan).permit(:title, :content, :image, :scheduled_date)
     end
 
     def set_currentuser

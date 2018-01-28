@@ -59,3 +59,7 @@ gem 'nokogiri'
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
+
+# date picker
+gem 'momentjs-rails'
+gem 'bootstrap3-datetimepicker-rails'
