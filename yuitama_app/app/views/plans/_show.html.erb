@@ -1,0 +1,39 @@
+  <div class="container-fluid">
+	<div class="row">
+	  <div class="col-md-12">
+		<p>
+		<strong>Title:</strong>
+		<%= plan.title %>
+		</p>
+	  </div>
+	</div>
+
+	<div class="row">
+	  <div class="col-md-12">
+		<p>
+		<strong>Image:</strong>
+		<%= image_tag show_image_plan_path(plan),size:"300x300" %>
+		</p>
+	  </div>
+	</div>
+
+  <div class="row">
+	  <div class="col-md-12">
+		<p>
+		<strong>Content:</strong>
+    <%= plan.content%>
+		</p>
+	  </div>
+	</div>
+
+
+	<div class="row">
+	  <div class="col-md-12">
+		<p>
+		<strong>Creator:</strong>
+		<%= link_to("#{Utinaantyu.find(plan.creator_id).name}", "/utinaantyus/#{Utinaantyu.find(plan.creator_id).id}" ) %>
+		</p>
+	  </div>
+	  </div>
+
+	</div>
