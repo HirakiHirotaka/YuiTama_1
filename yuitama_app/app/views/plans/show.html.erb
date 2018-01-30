@@ -1,48 +1,11 @@
 <%= content_for(:maincontent)  do %>
   <p id="notice"><%= notice %></p>
 
-  <div class="container-fluid">
-	<div class="row">
-	  <div class="col-md-12">
-		<p>
-		<strong>Title:</strong>
-		<%= @plan.title %>
-		</p>
-	  </div>
-	</div>
-
-	<div class="row">
-	  <div class="col-md-12">
-		<p>
-		<strong>Image:</strong>
-		<%= image_tag show_image_plan_path(@plan),size:"300x300" %>
-		</p>
-	  </div>
-	</div>
-
-  <div class="row">
-	  <div class="col-md-12">
-		<p>
-		<strong>Content:</strong>
-    <%= @plan.content%>
-		</p>
-	  </div>
-	</div>
-
-
-	<div class="row">
-	  <div class="col-md-12">
-		<p>
-		<strong>Creator:</strong>
-		<%= link_to("#{Utinaantyu.find(@plan.creator_id).name}", "/utinaantyus/#{Utinaantyu.find(@plan.creator_id).id}" ) %>
-		</p>
-	  </div>
-	  </div>
-
+  <%= render(partial:"show", locals:{plan:@plan})%>
 
     <div class="row">
       <div class="col-md-12">
-        <%= render(partial: "/comments/form", locals:{plan: @plan})%>
+        <%= render(partial: "/comments/form", locals:{plan_id: @plan.id})%>
       </div>
     </div>
 
