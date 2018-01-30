@@ -1,9 +1,17 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+// Background pattern from subtlepatterns.com /
+
 body {font-family: 'Segoe Script',
       'Papyrus'
-      sans-serif}
+      sans-serif
+    }
+
+.contents {
+  background-image: image-url("weather.png");
+  background-repeat: repeat;
+}
 
 .jumbotron {
   background-image: image-url("photo0001-1976.jpg");
