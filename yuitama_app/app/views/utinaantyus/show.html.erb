@@ -16,8 +16,6 @@
   <%= @utinaantyu.mailaddress %>
 </p>
 
-<!--<%=render partial: "profile/form", locals:{utinaantyu_id: @utinaantyu.id}%> -->
-
 <h2>この方のプラン</h2>
 <% @plans = Plan.where(creator_id: @utinaantyu.id) %>
 <%= render :partial => "plans/index", collection:@plans %>

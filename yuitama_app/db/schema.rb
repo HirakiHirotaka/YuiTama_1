@@ -37,17 +37,6 @@ ActiveRecord::Schema.define(version: 20180130042244) do
     t.datetime "updated_at", null: false
   end
 
-<<<<<<< HEAD
-=======
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "password"
-  end
-
->>>>>>> master
   create_table "utinaantyus", force: :cascade do |t|
     t.string "name"
     t.integer "age"

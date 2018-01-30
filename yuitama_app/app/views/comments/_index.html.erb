@@ -1,5 +1,12 @@
 <div class="row">
   <div class="col-md-offset-4 col-md-4">
+    <%if index.speaker_id != nil%>
+  <%@speaker = Utinaantyu.find(index.speaker_id)%>
+  <%=link_to @speaker.name, "/utinaantyus/#{@speaker.id}"%>さん
+    <%else%>
+    ゲストさん
+    <%end%>
+<%= index.speaker_id %>
 <%= index.content %>
 </div>
 </div>
