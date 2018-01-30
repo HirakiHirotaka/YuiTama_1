@@ -1,22 +1,32 @@
 class PlansController < ApplicationController
-  before_action :set_plan, only: [:show, :edit, :updat, :destroy]
+  before_action :set_plan, only: [:show, :edit, :update, :destroy]
   before_action :set_currentuser
-  before_action :authenticate_user, only: [:edit, :update]
+  before_action :authenticate_user, only: [:new, :edit, :update]
   before_action :ensure_currect_user, only: [:edit, :update, :destroy]
 
 
   # GET /plans
   # GET /plans.json
-  def index
-    @plans = Plan.all
-
-    @counter = 1
-
+  def index()
+    @counter = 0
+    if params[:search]
+      if params[:selected_val] == "内容"
+        @plans = Plan.where(["content LIKE ?", "%#{params[:search]}%"]) #コンテント用
+        render
+      elsif params[:selected_val] == "ハッシュタグ"
+        @plans = Plan.where(["content LIKE ?", "%##{params[:search]}%"]) #ハッシュタグ用
+        render
+      end
+    else
+      @plans = Plan.all
+    end
   end
 
   # GET /plans/1
   # GET /plans/1.json
   def show
+    @comment = @plan.comments.new
+    @comments = @plan.comments
   end
 
   def show_image
@@ -39,7 +49,7 @@ class PlansController < ApplicationController
   def create
 	image = plan_params[:image]
 	plan = {}
-	plan[:content] = plan_params[:content]
+  plan = plan_params
 	plan[:creator_id] = session[:user_id]
 	if image != nil
 	  plan[:image] = image.read
@@ -59,8 +69,12 @@ class PlansController < ApplicationController
   # PATCH/PUT /plans/1
   # PATCH/PUT /plans/1.json
   def update
+    plan = {}
+    plan = plan_params
+    plan[:creator_id] = @plan.creator_id
+
     respond_to do |format|
-      if @plan.update(plan_params)
+      if @plan.update(plan)
         format.html { redirect_to @plan, notice: 'Plan was successfully updated.' }
         format.json { render :show, status: :ok, location: @plan }
       else
@@ -88,7 +102,7 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:content, :image)
+      params.require(:plan).permit(:title, :content, :image, :scheduled_date)
     end
 
     def set_currentuser

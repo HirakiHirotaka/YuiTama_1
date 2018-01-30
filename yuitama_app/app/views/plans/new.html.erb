@@ -1,7 +1,7 @@
 <%= content_for(:maincontent)  do %>
 <h1>New Plan</h1>
 
-<%= render 'form', plan: @plan %>
+<%= render partial:'form', locals:{plan: @plan} %>
 
 <%= link_to 'Back', plans_path %>
 <% end %>

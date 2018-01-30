@@ -1,7 +1,12 @@
 <%= content_for(:maincontent)  do %>
 <p id="notice"><%= notice %></p>
 
-<h1>Plans <div align="right"><%= link_to 'New Plan', new_plan_path %></div></h1>
+<div class="container">
+  <h1>
+    <%= image_tag("plans.png", align:"left", class:"img-responsive", size:"300x135") %>
+    <%= link_to image_tag("New_Plan.png", align:"right", class:"img-responsive", size:"300x135"), "/plans/new" %>
+  </h1>
+</div>
 
 <table>
   <thead>
@@ -14,33 +19,13 @@
   </thead>
 
   <div class="container-fluid">
+    <%=form_tag("/plans", method:"get") do%>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+    <%= select_tag(:selected_val, options_for_select(["内容","ハッシュタグ"]))%>
+    <%end%>
 
-  <% if @counter%3 == 0%>
-  <%= @counter %>
-	 <div class="row">
-  <%end%>
-
-	  <% @plans.each do |plan| %>
-      <% if @counter%3 == 0%>
-	     <div class="row">
-      <%end%>
-		  <div class="col-md-4">
-		<div class="card">
-			<% if plan.image != nil %>
-			  <%= link_to image_tag(show_image_plan_path(plan), class: "img-responsive card-img-top", size:"300x300"), plan %>
-			<% else %>
-			  <%= link_to image_tag("no_image.png", class: "img-responsive card-img-top", size:"300x300"), plan %>
-			<% end %>
-			<div class="card-body">
-			  <p class="card-title"><b>案内内容</b></p>
-			  <p class="card-text text-truncate"><%= plan.content %></p>
-			</div>
-		  </div>
-		</div>
-
-
-    <%@counter+=1%>
-	  <% end %>
+  <%= render(partial: "index", collection:@plans)%>
   </div>
 
 <% end %>

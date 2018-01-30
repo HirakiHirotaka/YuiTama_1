@@ -16,8 +16,15 @@
   <%= @utinaantyu.mailaddress %>
 </p>
 
-<%if @utinaantyu.id == @currentuser.id%>
-<%= link_to 'Edit', edit_utinaantyu_path(@utinaantyu) %>
+<h2>この方のプラン</h2>
+<% @plans = Plan.where(creator_id: @utinaantyu.id) %>
+<%= render :partial => "plans/index", collection:@plans %>
+
+
+<% if @currentuser != nil%>
+  <%if @utinaantyu.id == @currentuser.id%>
+    <%= link_to 'Edit', edit_utinaantyu_path(@utinaantyu) %>
+  <%end%>
 <%end%>
 
 <% end %>

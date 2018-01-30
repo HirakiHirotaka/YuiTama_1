@@ -1,6 +1,8 @@
 <%= content_for(:maincontent)  do %>
 <%= form_with(model: plan, local: true, class:"form-horizontal") do |form| %>
 
+<div class="container-fluid">
+
 <div class="form-group">
   <%= form.label :image, class:"control-label col-md-2"%>
   <div class=" col-md-10">
@@ -12,7 +14,33 @@
 </div>
 
 
-  <div class="form-group">
+<div class="form-group">
+  <%= form.label :scheduled_date, class:"control-label col-md-2" %>
+  <div class="col-md-8">
+    <div class="input-group datepicker">
+      <%= form.text_field :scheduled_date, id: :plan_scheduled_date ,:class => "form-control"%>
+      <span class="input-group-addon">
+        <span class="glyphicon glyphicon-calendar"></span>
+      </span>
+    </div>
+  </div>
+
+  <% if plan.errors.messages[:scheduled_date].any? %>
+  <span class=text-warning><%= plan.errors.messages[:scheduled_date][0] %></span>
+  <% end %>
+</div>
+
+<div class="form-group">
+  <%= form.label :title, class:"control-label col-md-2" %>
+  <div class=" col-md-10">
+    <%= form.text_area :title, id: :plan_title ,:class => "form-control"%>
+  </div>
+  <% if plan.errors.messages[:title].any? %>
+  <span class=text-warning><%= plan.errors.messages[:title][0] %></span>
+  <% end %>
+</div>
+
+<div class="form-group">
     <%= form.label :content, class:"control-label col-md-2" %>
     <div class=" col-md-10">
       <%= form.text_area :content, id: :plan_content ,:class => "form-control"%>
@@ -23,9 +51,13 @@
   </div>
 
 
-	  <div class="actions">
-		<%= form.submit %>
-	  </div>
+  <div class="actions">
+    <div class="col-md-offset-2 col-md-10">
+      <%= form.submit class:"btn btn-primary btn-block"%>
+    </div>
+  </div>
+  </div>
 
 
+<% end %>
 <% end %>
