@@ -1,23 +1,25 @@
 class PlansController < ApplicationController
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
   before_action :set_currentuser
-  before_action :authenticate_user, only: [:edit, :update]
+  before_action :authenticate_user, only: [:new, :edit, :update]
   before_action :ensure_currect_user, only: [:edit, :update, :destroy]
 
 
   # GET /plans
   # GET /plans.json
   def index()
+    @counter = 0
     if params[:search]
       if params[:selected_val] == "内容"
         @plans = Plan.where(["content LIKE ?", "%#{params[:search]}%"]) #コンテント用
+        render
       elsif params[:selected_val] == "ハッシュタグ"
         @plans = Plan.where(["content LIKE ?", "%##{params[:search]}%"]) #ハッシュタグ用
+        render
       end
     else
       @plans = Plan.all
     end
-    @counter = 0
   end
 
   # GET /plans/1
@@ -100,7 +102,7 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:title, :content, :image)
+      params.require(:plan).permit(:title, :content, :image, :scheduled_date)
     end
 
     def set_currentuser
