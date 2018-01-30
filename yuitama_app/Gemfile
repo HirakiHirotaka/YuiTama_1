@@ -57,7 +57,12 @@ gem 'nokogiri'
 
 # bootstrap
 gem 'therubyracer'
+
 gem 'less-rails', git: 'https://github.com/MustafaZain/less-rails'
+#gem 'less-rails'
+#gem 'less-rails', :git => 'git@github.com:metaskills/less-rails.git',
+#    :branch => 'rails5'
+
 gem 'twitter-bootstrap-rails'
 
 
