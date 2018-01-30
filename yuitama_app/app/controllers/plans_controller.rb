@@ -1,7 +1,7 @@
 class PlansController < ApplicationController
   before_action :set_plan, only: [:show, :edit, :update, :destroy]
   before_action :set_currentuser
-  before_action :authenticate_user, only: [:edit, :update]
+  before_action :authenticate_user, only: [:new, :edit, :update]
   before_action :ensure_currect_user, only: [:edit, :update, :destroy]
 
 
