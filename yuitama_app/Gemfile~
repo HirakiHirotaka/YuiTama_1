@@ -59,5 +59,3 @@ gem 'nokogiri'
 gem 'therubyracer'
 gem 'less-rails', git: 'https://github.com/MustafaZain/less-rails'
 gem 'twitter-bootstrap-rails'
-
-gem 'rb-readline'
