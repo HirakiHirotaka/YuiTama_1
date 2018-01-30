@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/index'
+
   resources :plans
   resources :plans do
 	member do
@@ -18,6 +20,18 @@ Rails.application.routes.draw do
   get 'provide_plan/planInput'
   get 'provide_plan/regiComp'
   get 'provide_plan/myPlanList'
+
+  get "users/index" => "users#index"
+  get "users/:id" => "users#show"
+  get "/signup" => "users#new"
+  post "users/create" => "users#create"
+  get "users/:id/edit" => "users#edit"
+  post "users/:id/update" => "users#update"
+
+  get "users/:id/mypage" => "users#mypage"
+  get "/login_form" => "users#loginuser"
+  post "/login_form" => "users#loginpost"
+  post "logout_form" => "users#logoutuser"
 
 
   resources :utinaantyus
