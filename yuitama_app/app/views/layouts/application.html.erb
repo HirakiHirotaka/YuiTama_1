@@ -8,6 +8,7 @@
     <%= favicon_link_tag()%><!-- 引数省略すると,assets/images/favicon.ico が指定される-->
     <%= stylesheet_link_tag "application", :media => "all" %>
     <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
 
     <title>Yui・Tama</title>
 
@@ -48,6 +49,8 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
+          <% if @current_pub_user = User.find_by(id: session[:pub_user_id]) %>
+
           <li class="nav-item active">
             <a class="nav-link" href="/home/index">ホーム <span class="sr-only">(current)</span></a>
           </li>
@@ -57,6 +60,38 @@
           <li class="nav-item active">
             <a class="nav-link" href="/provide_plan/planInput">プラン登録</a>
           </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/users/index">ユーザー一覧</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="/signup">register</a>
+          </li>
+          <li class="nav-item active">
+            <%= link_to("ログアウト", "/logout_form", {method: :post}) %>
+          </li>
+              <li>
+                <%= link_to(@current_pub_user.name,"/users/#{@current_pub_user.id}")%>
+              </li>
+          <%else%>
+              <li class="nav-item active">
+                <a class="nav-link" href="/home/index">ホーム <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/home/planHome">プラン一覧</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/provide_plan/planInput">プラン登録</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/users/index">ユーザー一覧</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/signup">register</a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/login_form">user login</a>
+              </li>
+          <%end%>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">よくあるご質問</a>
 

@@ -1,0 +1,15 @@
+current directory: /Users/hirakihirotaka/Desktop/YuiTama_1/yuitama_app/vendor/bundle/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+/Users/hirakihirotaka/.rbenv/versions/2.4.1/bin/ruby -r ./siteconf20180116-23245-d8sggg.rb extconf.rb
+creating Makefile
+
+current directory: /Users/hirakihirotaka/Desktop/YuiTama_1/yuitama_app/vendor/bundle/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" clean
+
+current directory: /Users/hirakihirotaka/Desktop/YuiTama_1/yuitama_app/vendor/bundle/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR="
+compiling cruby.c
+linking shared-object bindex/cruby.bundle
+
+current directory: /Users/hirakihirotaka/Desktop/YuiTama_1/yuitama_app/vendor/bundle/ruby/2.4.0/gems/bindex-0.5.0/ext/bindex
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20180116-23245-p91pot/bindex
