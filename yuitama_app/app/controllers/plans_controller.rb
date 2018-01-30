@@ -12,11 +12,10 @@ class PlansController < ApplicationController
     if params[:search]
       if params[:selected_val] == "内容"
         @plans = Plan.where(["content LIKE ?", "%#{params[:search]}%"]) #コンテント用
-        render
       elsif params[:selected_val] == "ハッシュタグ"
         @plans = Plan.where(["content LIKE ?", "%##{params[:search]}%"]) #ハッシュタグ用
-        render
       end
+      render
     else
       @plans = Plan.all
     end
