@@ -59,11 +59,3 @@ gem 'nokogiri'
 gem 'therubyracer'
 gem 'less-rails', git: 'https://github.com/MustafaZain/less-rails'
 gem 'twitter-bootstrap-rails'
-
-
-# date picker
-gem 'momentjs-rails'
-gem 'bootstrap3-datetimepicker-rails'
-# コンソール用
-gem 'rb-readline'
-
