@@ -1,0 +1,33 @@
+<h1>Users#new</h1>
+<p>Find me in app/views/users/new.html.erb</p>
+
+
+<%= content_for(:maincontent) do%>
+
+    <% @user.errors.full_messages.each do |message| %>
+
+          <%= message %>
+
+    <% end %>
+
+    <%= form_tag("/users/create") do%>
+
+    <p>user new</p>
+
+    <p>username</p>
+
+    <input name="name" value="<%=@user.name%>">
+
+    <p>e-mail</p>
+
+    <input name="email" value="<%=@user.email%>">
+
+        <p>password</p>
+
+        <input name="password",type="name", value="<%= @user.password%>">
+
+    <input type="submit">
+
+    <%end%>
+
+<%end%>
