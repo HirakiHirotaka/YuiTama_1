@@ -1,0 +1,26 @@
+<h1>Users#login_form</h1>
+<p>Find me in app/views/users/login_form.html.erb</p>
+
+
+<%= content_for(:maincontent) do%>
+
+    <% if @error_message %>
+        <%= @error_message %>
+    <%end%>
+
+
+    <%= form_tag("/login_form") do%>
+
+    <p>email</p>
+
+    <input name="email" value="<%= @email %>">
+
+    <p>password</p>
+
+    <input type="password" name="password" value="<%= @password %>">
+
+    <input type="submit" value="Send">
+
+    <%end%>
+
+<%end%>

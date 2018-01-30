@@ -1,0 +1,26 @@
+<h1>Users#smypage</h1>
+<p>Find me in app/views/users/mypage.html.erb</p>
+
+
+<%= content_for(:maincontent) do%>
+
+    <p>user mypage</p>
+    <br>
+    <br>
+
+
+    <p>your name</p>
+    <h2><%= @current_pub_user.name%></h2>
+
+
+    <p>your ID</p>
+    <h2><%= @current_pub_user.id%></h2>
+
+
+    <p>your email</p>
+    <h2><%= @current_pub_user.email%></h2>
+
+
+<%end%>
+
+
