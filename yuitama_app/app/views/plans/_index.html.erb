@@ -1,20 +1,9 @@
-<% if @counter%3 == 0%>
-<div class="row">
-  <%end%>
-  <div class="col-md-4">
-    <div class="card">
-      <% if index.image != nil %>
-      <%= link_to image_tag(show_image_plan_path(index), class: "img-responsive card-img-top", size:"300x300"), index %>
-      <% else %>
-      <%= link_to image_tag("no_image.png", class: "img-responsive card-img-top", size:"300x300"), index %>
-      <% end %>
-      <div class="card-body">
-        <p class="card-title"><b>案内内容</b></p>
-        <p class="card-text text-truncate"><%= index.title %></p>
+      <div class="col-md-4 pt-4">
+        <div class="card ">
+          <%= link_to image_tag(show_image_plan_path(index), class: "img-responsive card-img-top"), index %>
+          <div class="card-body">
+            <p class="card-title"><b>案内内容</b></p>
+            <p class="card-text text-truncate"><%= index.title %></p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-  <%@counter+=1%>
-  <% if @counter%3 == 0%>
-</div>
-<%end%>

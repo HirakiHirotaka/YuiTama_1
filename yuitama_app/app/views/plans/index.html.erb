@@ -1,11 +1,9 @@
 <%= content_for(:maincontent)  do %>
 <p id="notice"><%= notice %></p>
 
-<div class="container">
-  <h1>
-    <%= image_tag("plans.png", align:"left", class:"img-responsive", size:"300x135") %>
+<div class="container-fluid px-4">
+    <%= image_tag("plans.png", align:"left", class:"img-responsive ", size:"300x135") %>
     <%= link_to image_tag("New_Plan.png", align:"right", class:"img-responsive", size:"300x135"), "/plans/new" %>
-  </h1>
 </div>
 
 <table>
@@ -25,7 +23,13 @@
     <%= select_tag(:selected_val, options_for_select(["内容","ハッシュタグ"]))%>
     <%end%>
 
-  <%= render(partial: "index", collection:@plans)%>
+    <div class="row pt-4">
+      <div class=" card-deck-wrapper">
+        <div class=" card-deck">
+          <%= render(partial: "index", collection:@plans)%>
+        </div>
+      </div>
+    </div>
   </div>
 
 <% end %>

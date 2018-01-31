@@ -1,51 +1,5 @@
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12">
-        <p>
-          <strong>Title:</strong>
-          <%= plan.title %>
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <p>
-          <strong>Scheduled_date:</strong>
-          <%= plan.scheduled_date %>
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <p>
-          <strong>Image:</strong>
-          <%= image_tag show_image_plan_path(plan),size:"300x300" %>
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-md-12">
-        <p>
-          <strong>Content:</strong>
-          <%= plan.content%>
-        </p>
-      </div>
-    </div>
-
-
-    <div class="row">
-      <div class="col-md-12">
-        <p>
-          <strong>Creator:</strong>
-          <%= link_to("#{Utinaantyu.find(plan.creator_id).name}", "/utinaantyus/#{Utinaantyu.find(plan.creator_id).id}" ) %>
-        </p>
-      </div>
-    </div>
-
-    <div class="row">
       <div class="col-md-6 p-0">
         <div id="carousel1" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner" role="listbox">
@@ -70,10 +24,14 @@
       <div class="align-self-center p-5 col-md-6">
         <h1 class="mb-4"><%=@plan.title%></h1>
 
-        <p class="mb-5"><%= plan.scheduled_date %></p>
+        <%if plan.scheduled_date == nil%>
+          <p class="mb-5">提案日: 未定</p>
+        <%else%>
+          <p class="mb-5">提案日: <%= plan.scheduled_date %></p>
+        <%end%>
         <p class="mb-5"><%=@plan.content%></p>
         <p class="mb-5">
-          <%= link_to("#{Utinaantyu.find(plan.creator_id).name}", "/utinaantyus/#{Utinaantyu.find(plan.creator_id).id}" ) %>
+          提案者: <%= link_to("#{Utinaantyu.find(plan.creator_id).name}", "/utinaantyus/#{Utinaantyu.find(plan.creator_id).id}" ) %>
         </p>
       </div>
     </div>

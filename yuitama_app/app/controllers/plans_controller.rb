@@ -52,6 +52,8 @@ class PlansController < ApplicationController
 	plan[:creator_id] = session[:user_id]
 	if image != nil
 	  plan[:image] = image.read
+	else
+    plan[:image] = File.open("#{Rails.root.to_s}/app/assets/images/no_image.png","r").read
 	end
     @plan = Plan.new(plan)
     respond_to do |format|
@@ -71,6 +73,9 @@ class PlansController < ApplicationController
     plan = {}
     plan = plan_params
     plan[:creator_id] = @plan.creator_id
+    if plan[:image] == nil
+      plan[:image] = File.open("#{Rails.root.to_s}/app/assets/images/no_image.png","r").read
+    end
 
     respond_to do |format|
       if @plan.update(plan)
