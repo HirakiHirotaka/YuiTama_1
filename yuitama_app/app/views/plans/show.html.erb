@@ -1,24 +1,18 @@
 <%= content_for(:maincontent)  do %>
+<div class="p-5 text-black">
   <p id="notice"><%= notice %></p>
 
   <%= render(partial:"show", locals:{plan:@plan})%>
 
-    <div class="row">
-      <div class="col-md-12">
-        <%= render(partial: "/comments/form", locals:{plan_id: @plan.id})%>
-      </div>
-    </div>
+  <%= render(partial: "/comments/form", locals:{plan_id: @plan.id})%>
 
-    <%= render(partial: "/comments/index", collection:@comments)%>
-
-	</div>
-
+  <%= render(partial: "/comments/index", collection:@comments)%>
 
 	<%= link_to 'プラン編集', edit_plan_path(@plan) %> |
 	<%= link_to 'プラン削除', @plan, method: :delete, data:{confirm: '本当に削除しますか？'}  %> |
 	<%= link_to 'プラン一覧へ', plans_path %>
 
-	</div>
+</div>
 
 
 

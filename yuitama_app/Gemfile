@@ -72,3 +72,7 @@ gem 'bootstrap3-datetimepicker-rails'
 # コンソール用
 gem 'rb-readline'
 
+# JavaScriptコードを実行するためのエンジン
+gem 'execjs'
+# 日時を操作するためのライブラリ
+gem 'momentjs-rails'
