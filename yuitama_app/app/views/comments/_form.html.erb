@@ -2,8 +2,8 @@
 <div class="container-fluid">
   <div class="form-group">
     <div class="row pt-5">
-      <div class=" col-md-12">
-        <%= form.text_area :content, id: :comment_content ,:class => "form-control"%>
+      <div class="col-md-offset-2 col-md-8">
+        <%= form.text_area :content, id: :comment_content, size:"30x5", :class => "form-control"%>
       </div>
       <% if @comment.errors.messages[:content].any? %>
       <span class=text-warning><%= @comment.errors.messages[:content][0] %></span>
@@ -14,10 +14,10 @@
 
       <%=hidden_field_tag :speaker_id, session[:user_id]%>
 
-    <div class="row pt-1">
-      <div class="col-md-12">
+    <div class="row pt-3">
+      <div class="col-md-offset-2 col-md-8">
         <div class="actions">
-          <%= form.submit class:"btn btn-primary btn-block"%>
+          <%= form.submit "コメントする", class:"btn btn-primary btn-block"%>
         </div>
       </div>
     </div>
