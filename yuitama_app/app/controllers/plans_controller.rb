@@ -12,11 +12,10 @@ class PlansController < ApplicationController
     if params[:search]
       if params[:selected_val] == "内容"
         @plans = Plan.where(["content LIKE ?", "%#{params[:search]}%"]) #コンテント用
-        render
       elsif params[:selected_val] == "ハッシュタグ"
         @plans = Plan.where(["content LIKE ?", "%##{params[:search]}%"]) #ハッシュタグ用
-        render
       end
+      render
     else
       @plans = Plan.all
     end
@@ -53,6 +52,8 @@ class PlansController < ApplicationController
 	plan[:creator_id] = session[:user_id]
 	if image != nil
 	  plan[:image] = image.read
+	else
+    plan[:image] = File.open("#{Rails.root.to_s}/app/assets/images/no_image.png","r").read
 	end
     @plan = Plan.new(plan)
     respond_to do |format|
@@ -72,6 +73,9 @@ class PlansController < ApplicationController
     plan = {}
     plan = plan_params
     plan[:creator_id] = @plan.creator_id
+    if plan[:image] == nil
+      plan[:image] = File.open("#{Rails.root.to_s}/app/assets/images/no_image.png","r").read
+    end
 
     respond_to do |format|
       if @plan.update(plan)
@@ -112,7 +116,7 @@ class PlansController < ApplicationController
     def authenticate_user
       if @currentuser == nil
         flash[:notice] = "ログインが必要です"
-        redirect_to("/login")
+        redirect_to("/utinaantyus/login")
       end
     end
 

@@ -1,6 +1,6 @@
 class UtinaantyusController < ApplicationController
   before_action :set_utinaantyu, only: [:show, :edit, :update, :destroy]
-  before_action :set_currentuser
+  #before_action :set_currentuser
   before_action :authenticate_user, only: [:edit, :update]
   before_action :forbid_login_user, only: [:login, :new, :create, :login_form]
   before_action :ensure_correct_user, only: [:edit, :update]
@@ -72,6 +72,7 @@ class UtinaantyusController < ApplicationController
     @utinaantyu = Utinaantyu.find_by(mailaddress: params[:mailaddress],password: params[:password])
     if @utinaantyu
       session[:user_id] = @utinaantyu.id
+      session[:pub_user_id] = nil #旅行者垢はログアウト
       flash[:notice] ="#{@utinaantyu.name}さんがログインしました。"
       redirect_to("/")
     else
@@ -83,7 +84,7 @@ class UtinaantyusController < ApplicationController
   def logout
     session[:user_id] = nil
     flash[:notice]="ログアウトしました。"
-    redirect_to("/login")
+    redirect_to("/utinaantyus/login")
   end
 
   private
@@ -98,25 +99,25 @@ class UtinaantyusController < ApplicationController
     end
 
     def set_currentuser
-      @currentuser = Utinaantyu.find_by(id: session[:user_id])
+      @current_utinaantyu = Utinaantyu.find_by(id: session[:user_id])
     end
 
     def authenticate_user
-      if @currentuser == nil
+      if @current_utinaantyu == nil
         flash[:notice] = "ログインが必要です"
-        redirect_to("/login")
+        redirect_to("/utinaantyus/login")
       end
     end
 
     def forbid_login_user
-      if @currentuser
+      if @current_utinaantyu
         flash[:notice] = "すでにログインしています"
         redirect_to("/plans")
       end
     end
 
     def ensure_correct_user
-      if @currentuser == params[:id].to_i
+      if @current_utinaantyu == params[:id].to_i
         flash[:notice] = "権限がありません"
         redirect_to("/plans")
       end
