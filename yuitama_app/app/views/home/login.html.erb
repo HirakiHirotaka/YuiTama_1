@@ -1,9 +1,32 @@
 <%= content_for(:maincontent)  do %>
-  ログイン
-    <%= link_to image_tag("login-button.png", class:"img-responsive", size:"250x75"), "/utinaantyus/login" %>
-    <%= link_to image_tag("login-button.png", class:"img-responsive", size:"250x75"), "/user/login" %>
-  <p><a class="btn btn-primary btn-lg" href="/utinaantyus/new" role="button">新規登録 &raquo;</a></p>
+<div class="container-fluid p-5">
+  <div class="row justify-content-center">
+    <div class="card">
+      <div class="card-body">
+
+    <div class="col-md-6">
+      <%= link_to image_tag("login-button.png", class:"img-responsive", size:"250x75"), "/utinaantyus/login" %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <%= link_to image_tag("login-button.png", class:"img-responsive", size:"250x75"), "/user/login" %>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <p><a class="btn btn-primary btn-lg" href="/utinaantyus/new" role="button">新規登録 &raquo;</a></p>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
       <%= link_to image_tag("newRegistration-button.png", class:"img-responsive", size:"250x75"), "/utinaantyus/new" %>
+    </div>
+  </div>
+
+      </div>
+    </div>
+</div>
 <% end %>
 
 <!-- <%= button_to "homeへ戻る", {:controller => 'home', :action => 'index'}, :method => :get %>
