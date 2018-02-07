@@ -52,8 +52,9 @@ class UsersController < ApplicationController
     @user = User.find_by(email: params[:email],password: params[:password])
     if @user
       session[:pub_user_id] = @user.id
+      session[:user_id] = nil#ウチナーンチュ垢はログアウト
       flash[:notice] = "logged in!"
-      redirect_to("/users/index")
+      redirect_to("/plans")
     else
       @error_message = "Wrong your password or emailaddr"
       @email = params[:email]

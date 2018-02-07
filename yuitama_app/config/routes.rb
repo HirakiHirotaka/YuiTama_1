@@ -8,9 +8,9 @@ Rails.application.routes.draw do
 	end
   end
   resources :comments
-  post "login" => "utinaantyus#login"
-  get "login" => "utinaantyus#login_form"
-  get "logout" =>"utinaantyus#logout"
+  post "/utinaantyu/login" => "utinaantyus#login"
+  get "/utinaantyus/login" => "utinaantyus#login_form"
+  get "/utinaantyus/logout" =>"utinaantyus#logout"
 
   get 'accept_plan/planMylist'
   get 'accept_plan/planDetail'
@@ -24,15 +24,15 @@ Rails.application.routes.draw do
 
   get "users/index" => "users#index"
   get "users/:id" => "users#show"
-  get "/signup" => "users#new"
+  get "/user/signup" => "users#new"
   post "users/create" => "users#create"
   get "users/:id/edit" => "users#edit"
   post "users/:id/update" => "users#update"
 
   get "users/:id/mypage" => "users#mypage"
-  get "/login_form" => "users#loginuser"
-  post "/login_form" => "users#loginpost"
-  post "logout_form" => "users#logoutuser"
+  get "/user/login" => "users#loginuser"
+  post "/user/login" => "users#loginpost"
+  get "/user/logout" => "users#logoutuser"
 
 
   resources :utinaantyus

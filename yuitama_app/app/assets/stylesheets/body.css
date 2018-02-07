@@ -1,0 +1,22 @@
+body{
+  font-size: 100px;
+}
+.popover{
+  z-index: 0!important;
+}
+
+.plan-content{
+  font-size: 1.5vw;
+  line-height:2.5vw;
+}
+.plan-title{
+  font-size: 2vw;
+}
+
+.form-content{
+  font-size: 1.5vw;
+}
+
+.navbar-nav{
+  font-size: 1.0vw;
+}
