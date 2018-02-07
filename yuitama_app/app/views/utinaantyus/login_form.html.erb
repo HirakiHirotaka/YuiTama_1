@@ -1,21 +1,34 @@
 <%= content_for(:maincontent) do %>
 
-<%= form_tag("/login") do |form| %>
+<div class="container-fluid p-5 ">
+<%= form_tag(utinaantyu_login_path, class:"form-horizontal") do |form| %>
   <div id="form-error">
     <%= @error_message %>
   </div>
 
-  <div class="field">
-    <%= label_tag :mailaddress, "メールアドレス" %>
-    <%= text_field_tag :mailaddress, params[:mailaddress] %>
+  <div class="form-group">
+    <div class="col-md-2">
+      <%= label_tag :mailaddress, "メールアドレス", class:"form-content"%>
+    </div>
+    <div class=" col-md-10">
+      <%= text_field_tag :mailaddress, params[:mailaddress] , class:"form-content"%>
+    </div>
   </div>
-  <div class="field">
-    <%= label_tag :password, "パスワード" %>
-    <%= password_field_tag :password, params[:password] %>
+
+  <div class="form-group">
+    <div class=" col-md-2">
+      <%= label_tag :password, "パスワード" , class:"form-content"%>
+    </div>
+    <div class=" col-md-10">
+      <%= password_field_tag :password, params[:password] , class:"form-content"%>
+    </div>
   </div>
 
   <div class="actions">
-    <%= submit_tag %>
+    <div class=" col-md-offset-2 col-md-10 pt-4">
+      <%= submit_tag "ログイン", class:"form-content"%>
+    </div>
   </div>
-<% end %>
+</div>
+  <% end %>
 <% end %>

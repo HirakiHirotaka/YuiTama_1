@@ -12,9 +12,12 @@
 //
 //= require rails-ujs
 //= require turbolinks
-//= require_tree .
+//= require jquery
 //= require bootstrap
+//= require_tree .
+//= require_self
 //= require moment
+//= require moment/ja
 //= require bootstrap-datetimepicker
 
 var data = {'data-date-format': 'YYYY-MM-DD hh:mm:ss' };

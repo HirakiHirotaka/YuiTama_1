@@ -15,6 +15,7 @@
 
     <!-- Bootstrap core CSS -->
     <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="https://getbootstrap.com/docs/4.0/examples/jumbotron/jumbotron.css" rel="stylesheet">
@@ -49,49 +50,18 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-          <% if @current_pub_user = User.find_by(id: session[:pub_user_id]) %>
-
-          <li class="nav-item active">
-            <a class="nav-link" href="/home/index">ホーム <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/home/planHome">プラン一覧</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/provide_plan/planInput">プラン登録</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/users/index">ユーザー一覧</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" href="/signup">register</a>
-          </li>
-          <li class="nav-item active">
-            <%= link_to("ログアウト", "/logout_form", {method: :post}) %>
-          </li>
-              <li>
-                <%= link_to(@current_pub_user.name,"/users/#{@current_pub_user.id}")%>
-              </li>
-          <%else%>
-              <li class="nav-item active">
-                <a class="nav-link" href="/home/index">ホーム <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/home/planHome">プラン一覧</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/provide_plan/planInput">プラン登録</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/users/index">ユーザー一覧</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/signup">register</a>
-              </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="/login_form">user login</a>
-              </li>
-          <%end%>
+            <li class="nav-item active">
+              <a class="nav-link" href="/home/index">ホーム <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/home/planHome">プラン一覧</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/provide_plan/planInput">プラン登録</a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="/users/index">ユーザー一覧</a>
+            </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">よくあるご質問</a>
 
@@ -108,14 +78,25 @@
           <li class="nav-item dropdown">
             <% if session[:user_id]%>
               <% currentuser = Utinaantyu.find(session[:user_id])%>
-              <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><%=Utinaantyu.find(session[:user_id]).name%>さんようこそ</a>
+              <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">[ウチナーンチュ]<%=Utinaantyu.find(session[:user_id]).name%>さんようこそ</a>
+            <%elsif session[:pub_user_id]%>
+              <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">[旅行者]<%=User.find(session[:pub_user_id]).name%>さんようこそ</a>
             <%else%>
               <a class="nav-link dropdown-toggle" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ゲストさんようこそ</a>
             <%end%>
             <div class="dropdown-menu" aria-labelledby="dropdown02">
-              <a class="dropdown-item" href="/login">ログイン</a>
+
+              <% if session[:user_id]%>
               <a class="dropdown-item" href="/utinaantyus/<%=session[:user_id]%>">マイページ</a>
-              <a class="dropdown-item" href="/logout" method="POST">ログアウト</a>
+                <a class="dropdown-item" href="/utinaantyus/logout" method="POST">ログアウト</a>
+              <%elsif session[:pub_user_id]%>
+              <a class="dropdown-item" href="/users/<%=session[:pub_user_id]%>/mypage">マイページ</a>
+                <a class="dropdown-item" href="/user/logout" method="POST">ログアウト</a>
+              <%else%>
+                <a class="dropdown-item" href="/home/login">ログイン</a>
+                <a class="dropdown-item" href="/user/signup" method="POST">新規旅行者登録</a>
+                <a class="dropdown-item" href="/utinaantyus/new" method="POST">新規ウチナーンチュ登録</a>
+              <%end%>
           </li>
 
         </ul>
@@ -135,7 +116,7 @@
         <p>あなたが訪れるたびに、新たな沖縄に出会えます。<br>Yui・Tamaは一歩先の旅を、最高の旅をあなたにお届けします。</p>
         <p><a class="btn btn-primary btn-lg" href="/home/login" role="button">ログイン &raquo;</a></p>
 
-        <%= link_to image_tag("login-button.png", class:"img-rounded", size:"250x75"), "/login" %>
+        <%= link_to image_tag("Utinaantyus-Login.png", class:"img-rounded", size:"250x75"), "/login" %>
 
       </div>
     </header>

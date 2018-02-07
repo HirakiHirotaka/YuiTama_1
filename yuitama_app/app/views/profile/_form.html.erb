@@ -1,0 +1,35 @@
+<%= form_for(@utinaantyu.profile.build, class:"form-horizontal") do |form| %>
+
+<div class="container-fluid">
+
+<div class="form-group">
+  <%= form.label :introduction, class:"control-label col-md-2" %>
+  <div class="col-md-8">
+      <%= form.text_area :introduction, id: :profile_introduction ,:class => "form-control"%>
+    </div>
+  </div>
+  <% if profile.errors.messages[:introduction].any? %>
+  <span class=text-warning><%= profile.errors.messages[:introduction][0] %></span>
+  <% end %>
+
+<div class="form-group">
+  <%= form.label :title, class:"control-label col-md-2" %>
+  <div class=" col-md-10">
+    <%= form.text_area :specialy, id: :profile_specialy ,:class => "form-control"%>
+  </div>
+  <% if profile.errors.messages[:specialy].any? %>
+  <span class=text-warning><%= profile.errors.messages[:specialy][0] %></span>
+  <% end %>
+</div>
+
+<%=hidden_field_tag :utinaantyu_id, utinaantyu_id%>
+
+  <div class="actions">
+    <div class="col-md-offset-2 col-md-10">
+      <%= form.submit class:"btn btn-primary btn-block"%>
+    </div>
+  </div>
+  </div>
+
+
+<% end %>
