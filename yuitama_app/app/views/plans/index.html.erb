@@ -23,8 +23,14 @@
 
   <div class="container-fluid">
 
-
     <div class="row pt-4">
+    <%if @plans.length == 0%>
+      <div class="col-md-12 p-5">
+      <p class="plan-title text-center">
+        検索結果はありません
+      </p>
+  </div>
+    <%end%>
       <div class=" card-deck-wrapper">
         <div class=" card-deck">
           <%= render(partial: "index", collection:@plans)%>
