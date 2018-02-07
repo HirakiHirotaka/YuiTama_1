@@ -1,8 +1,8 @@
 <%= form_for(@plan.comments.build, class:"form-horizontal") do |form| %>
 <div class="container-fluid">
   <div class="form-group">
-    <div class="row pt-5">
-      <div class="col-md-offset-2 col-md-8">
+    <div class="row pt-5 justify-content-md-center">
+      <div class="col-md-8">
         <%= form.text_area :content, id: :comment_content, size:"30x5", :class => "form-control"%>
       </div>
       <% if @comment.errors.messages[:content].any? %>
@@ -14,8 +14,8 @@
 
       <%=hidden_field_tag :speaker_id, session[:user_id]%>
 
-    <div class="row pt-3">
-      <div class="col-md-offset-2 col-md-8">
+    <div class="row pt-3 justify-content-md-center">
+      <div class="col-md-8">
         <div class="actions">
           <%= form.submit "コメントする", class:"btn btn-primary btn-block"%>
         </div>

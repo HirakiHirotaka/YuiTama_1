@@ -1,7 +1,8 @@
 <%= content_for(:maincontent)  do %>
-<h1>New Plan</h1>
+<div class="container-fluid p-5">
 
 <%= render partial:'form', locals:{plan: @plan} %>
 
 <%= link_to 'Back', plans_path %>
 <% end %>
+</div>

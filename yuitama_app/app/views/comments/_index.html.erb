@@ -15,9 +15,9 @@
           <h3 class="popover-title">ゲストさん</h3>
       <%end%>
       <div class="popover-content">
-        <p><%= index.content %></p>
+        <p class=""><%= index.content %></p>
+        <p class="text-right pr-3"><%=time_ago_in_words(index.created_at) + "前"%></p>
       </div>
-      <p class="text-right pr-3"><%=time_ago_in_words(index.created_at) + "前"%></p>
     </div>
   <%end%>
     </div>

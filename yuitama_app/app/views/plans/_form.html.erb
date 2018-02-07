@@ -1,17 +1,22 @@
     <div class="row">
-      <div class="col-md-6 p-0">
+      <div class="col-md-5 p-0">
         <div id="carousel1" class="carousel slide" data-ride="carousel">
           <div class="carousel-inner" role="listbox">
+              <%if params[:id]!=nil%>
             <div class="carousel-item active">
-              <%= image_tag show_image_plan_path(plan), class:"d-block img-fluid w-100"%>
-
+                  <%= image_tag show_image_plan_path(plan), class:"d-block img-fluid w-100"%>
               <!-- 写真に文字被せるなら以下のタグ内に記載 -->
-              <div class="carousel-caption">
+              <div class="carousel-caption plan-content">
               </div>
             </div>
+              <%end%>
+              <%if params[:id]==nil%>
+            <div class="carousel-item active">
+              <%else%>
             <div class="carousel-item">
+              <%end%>
               <%= image_tag "no_image.png", class:"d-block img-fluid w-100"%>
-              <div class="carousel-caption">
+              <div class="carousel-caption plan-content">
               </div>
             </div>
           </div>
@@ -20,57 +25,57 @@
         </div>
       </div>
       <!-- ここに写真右側の文字 -->
-      <div class="align-self-center p-5 col-md-6">
+      <div class="align-self-center p-5 col-md-7">
 
         <%= form_with(model: plan, local: true, class:"form-horizontal") do |form| %>
           <div class="form-group">
-            <%= form.label "画像", class:"control-label col-md-2"%>
+            <%= form.label "画像", class:"control-label col-md-2 plan-content"%>
             <div class=" col-md-10">
-              <%= form.file_field :image, id: :plan_image ,:class => "btn btn-default btn-file form-control"%>
+              <%= form.file_field :image, id: :plan_image ,:class => "plan-content btn btn-default btn-file form-control"%>
             </div>
             <% if plan.errors.messages[:image].any? %>
-            <span class=text-warning><%= plan.errors.messages[:image][0] %></span>
+            <span class="text-warning plan-content"><%= plan.errors.messages[:image][0] %></span>
             <% end %>
           </div>
 
           <div class="form-group">
-            <%= form.label "計画日", class:"control-label col-md-2" %>
+            <%= form.label "計画日", class:"control-label col-md-2 plan-content" %>
             <div class="col-md-10">
-              <div class="input-group datepicker col-md-12">
+              <div class="input-group datepicker col-md-12 plan-content">
                 <%= form.text_field :scheduled_date, id: :plan_scheduled_date ,:class => "form-control"%>
-                <span class="input-group-addon col-md-1">
+                <span class="input-group-addon col-md-1 plan-content">
                   <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
                 </span>
               </div>
             </div>
             <% if plan.errors.messages[:scheduled_date].any? %>
-            <span class=text-warning><%= plan.errors.messages[:scheduled_date][0] %></span>
+            <span class="text-warning plan-content"><%= plan.errors.messages[:scheduled_date][0] %></span>
             <% end %>
           </div>
 
           <div class="form-group">
-            <%= form.label "タイトル", class:"control-label col-md-2" %>
+            <%= form.label "タイトル", class:"control-label col-md-2 plan-content" %>
             <div class=" col-md-10">
-              <%= form.text_area :title, id: :plan_title , :class => "form-control"%>
+              <%= form.text_area :title, id: :plan_title , :class => "form-control plan-content"%>
             </div>
             <% if plan.errors.messages[:title].any? %>
-            <span class=text-warning><%= plan.errors.messages[:title][0] %></span>
+            <span class="text-warning plan-content"><%= plan.errors.messages[:title][0] %></span>
             <% end %>
           </div>
 
           <div class="form-group">
-            <%= form.label "プラン内容", class:"control-label col-md-2" %>
+            <%= form.label "プラン内容", class:"control-label col-md-2 plan-content" %>
             <div class=" col-md-10">
-              <%= form.text_area :content, id: :plan_content, size:"50x20" ,:class => "form-control"%>
+              <%= form.text_area :content, id: :plan_content, size:"50x20" ,:class => "form-control plan-content"%>
             </div>
             <% if plan.errors.messages[:content].any? %>
-            <span class=text-warning><%= plan.errors.messages[:content][0] %></span>
+            <span class="text-warning plan-content"><%= plan.errors.messages[:content][0] %></span>
             <% end %>
           </div>
 
           <div class="actions">
             <div class="col-md-offset-2 col-md-10 pt-4">
-              <%= form.submit class:"btn btn-primary btn-block"%>
+              <%= form.submit class:"btn btn-primary btn-block plan-content"%>
             </div>
           </div>
       </div>
