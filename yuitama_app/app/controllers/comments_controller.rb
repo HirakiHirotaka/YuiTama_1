@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Plan.find(params[:plan_id]).comments.build(comment_params)
+    @comment.speaker_id = params[:speaker_id]
     #@comment.plan = Plan.find(params[:plan_id])
     respond_to do |format|
       if @comment.save
@@ -18,11 +19,12 @@ class CommentsController < ApplicationController
   end
 
   def index
+    @speaker = Utinaantyu.find(params[:speaker_id])
   end
 
 
   private
   def comment_params
-    params.require(:comment).permit(:content)
+    params.require(:comment).permit(:content,:speaker_id)
   end
 end

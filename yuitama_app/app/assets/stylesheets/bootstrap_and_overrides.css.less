@@ -7,7 +7,7 @@
 //@glyphiconsTtfPath: font-url("glyphicons-halflings-regular.ttf");
 //@glyphiconsSvgPath: font-url("glyphicons-halflings-regular.svg#glyphicons_halflingsregular");
 //
-//@import "twitter/bootstrap/glyphicons.less";
+@import "twitter/bootstrap/glyphicons.less";
 
 // Your custom LESS stylesheets goes here
 //
@@ -19,3 +19,12 @@
 //
 // Example:
 // @link-color: #ff0000;
+
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('/assets/glyphicons-halflings-regular.eot');
+  src: url('/asstes/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+  url('/assets/glyphicons-halflings-regular.woff') format('woff'),
+  url('/assets/glyphicons-halflings-regular.ttf') format('truetype'),
+  url('/assets/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}

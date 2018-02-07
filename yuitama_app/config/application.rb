@@ -14,6 +14,10 @@ module YuitamaApp
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
-    config.app_generators.stylesheet_engine :less
+    config.app_generators.stylesheet_engine :css
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '*.{rb,yml}').to_s]
+    config.i18n.default_locale = :ja
+    # vendor/assets/fonts/bootstrap/glyphicons-halflings-regular.* を precompile の対象に含める
+    config.assets.precompile += %w(*.eot *.svg *.ttf *.woff)
   end
 end
