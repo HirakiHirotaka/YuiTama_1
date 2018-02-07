@@ -116,7 +116,7 @@ class PlansController < ApplicationController
     def authenticate_user
       if @currentuser == nil
         flash[:notice] = "ログインが必要です"
-        redirect_to("/login")
+        redirect_to("/utinaantyus/login")
       end
     end
 
