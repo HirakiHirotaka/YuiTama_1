@@ -29,16 +29,10 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 
 <style type=“text/css”>
-<!--
-/*ここに調整CSS記述*/
-.jumbotron { background: image-url("/photo0001-1976.jpg") %> center no-repeat; background-size: cover;}
-
-->
 	</style>
 	<%= javascript_include_tag "application" %>
 
   </head>
-  <body>
     <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: #90caf9;">
       <a class="navbar-brand" href="#">
 
@@ -62,18 +56,6 @@
             <li class="nav-item active">
               <a class="nav-link" href="/users/index">ユーザー一覧</a>
             </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">よくあるご質問</a>
-
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-          <li class="nav-item active">
-              <a class="nav-link" href="#">お問い合わせ</a>
-          </li>
 
           <li class="nav-item dropdown">
             <% if session[:user_id]%>
@@ -94,7 +76,7 @@
                 <a class="dropdown-item" href="/user/logout" method="POST">ログアウト</a>
               <%else%>
                 <a class="dropdown-item" href="/home/login">ログイン</a>
-                <a class="dropdown-item" href="/user/signup" method="POST">新規旅行者登録</a>
+                <a class="dropdown-item " href="/user/signup" method="POST">新規旅行者登録</a>
                 <a class="dropdown-item" href="/utinaantyus/new" method="POST">新規ウチナーンチュ登録</a>
               <%end%>
           </li>
@@ -109,24 +91,26 @@
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <header class="jumbotron">
-      <div class="container">
+      <div class="container-fluid">
         <h1 class="display-3">
           <%= image_tag("YuiTama.png", class: "img-responsive img-rounded", size: "460x100") %>
         </h1>
-        <p>あなたが訪れるたびに、新たな沖縄に出会えます。<br>Yui・Tamaは一歩先の旅を、最高の旅をあなたにお届けします。</p>
-        <p><a class="btn btn-primary btn-lg" href="/home/login" role="button">ログイン &raquo;</a></p>
+        <p><a class="plan-title">あなたが訪れるたびに、新たな沖縄に出会えます。<br>Yui・Tamaは一歩先の旅を、最高の旅をあなたにお届けします。</a></p>
 
-        <%= link_to image_tag("Utinaantyus-Login.png", class:"img-rounded", size:"250x75"), "/login" %>
+        <%= link_to image_tag("login-button.png", class:"img-rounded", size:"250x75"), "/home/login" %>
 
       </div>
     </header>
 
+  <body>
   <!--login画面-->
   <div class="contents">
 	  <%= yield(:maincontent) %>
 
 	  </div>
       <hr>
+
+  </body>
     <!-- footer -->
     <footer>
         <div class="container">

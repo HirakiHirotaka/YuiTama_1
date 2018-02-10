@@ -9,11 +9,14 @@ class PlansController < ApplicationController
   # GET /plans.json
   def index()
     @counter = 0
-    if params[:search]
-      if params[:selected_val] == "内容"
-        @plans = Plan.where(["content LIKE ?", "%#{params[:search]}%"]) #コンテント用
-      elsif params[:selected_val] == "ハッシュタグ"
-        @plans = Plan.where(["content LIKE ?", "%##{params[:search]}%"]) #ハッシュタグ用
+    searchword = params[:search]
+    searchgenre = params[:selected_val]
+
+    if searchword
+      if searchgenre == "内容"
+        @plans = Plan.where(["content LIKE ?", "%#{searchword}%"]) #コンテント用
+      elsif searchgenre == "ハッシュタグ"
+        @plans = Plan.where(["content LIKE ?", "%##{searchword}%"]) #ハッシュタグ用
       end
       render
     else
