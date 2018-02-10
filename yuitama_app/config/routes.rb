@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get "/utinaantyus/login" => "utinaantyus#login_form"
   get "/utinaantyus/logout" =>"utinaantyus#logout"
 
+  get '/plans/:id/book' => 'plans#book'
+  get '/users/:user_id/:plan_id/cansel' => 'plans#cansel'
+
   get 'accept_plan/planMylist'
   get 'accept_plan/planDetail'
   get 'accept_plan/planList'

@@ -36,6 +36,14 @@
         <p class="plan-content"><%=@plan.content%></p>
       </div>
 
+        <%if @current_pub_user.bookedplan_id then%>
+        <div><p>Booked!</p>
+          <%= link_to("cansel","#{@plan.id}/cansel")%>
+        </div>
+            <%else%>
+            <p>BUTTON</p>
+            <%= link_to("BUTTON","#{@plan.id}/book")%>
+        <%end%>
       </div>
       <div class="card-footer">
         <p class="text-right mt-2">

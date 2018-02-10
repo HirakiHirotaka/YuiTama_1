@@ -56,6 +56,18 @@
             <li class="nav-item active">
               <a class="nav-link" href="/users/index">ユーザー一覧</a>
             </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">よくあるご質問</a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" href="#">Action</a>
+              <a class="dropdown-item" href="#">Another action</a>
+              <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+          </li>
+          <li class="nav-item active">
+              <a class="nav-link" href="#">お問い合わせ</a>
+          </li>
 
           <li class="nav-item dropdown">
             <% if session[:user_id]%>
@@ -91,13 +103,14 @@
 
     <!-- Main jumbotron for a primary marketing message or call to action -->
     <header class="jumbotron">
-      <div class="container-fluid">
+      <div class="container">
         <h1 class="display-3">
           <%= image_tag("YuiTama.png", class: "img-responsive img-rounded", size: "460x100") %>
         </h1>
         <p><a class="plan-title">あなたが訪れるたびに、新たな沖縄に出会えます。<br>Yui・Tamaは一歩先の旅を、最高の旅をあなたにお届けします。</a></p>
+        <p><a class="btn btn-primary btn-lg" href="/home/login" role="button">ログイン &raquo;</a></p>
 
-        <%= link_to image_tag("login-button.png", class:"img-rounded", size:"250x75"), "/home/login" %>
+        <%= link_to image_tag("Utinaantyus-Login.png", class:"img-rounded", size:"250x75"), "/login" %>
 
       </div>
     </header>

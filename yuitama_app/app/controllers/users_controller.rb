@@ -78,6 +78,10 @@ class UsersController < ApplicationController
   end
 
   def mypage
+    if @current_pub_user.bookedplan_id then
+      num = @current_pub_user.bookedplan_id
+      @plan = Plan.find(num)
+    end
 
   end
 end

@@ -20,6 +20,18 @@
     <p>your email</p>
     <h2><%= @current_pub_user.email%></h2>
 
+    <% if @current_pub_user.bookedplan_id then%>
+
+        <p>booked!!!</p>
+        <!-- render処理のみ-->
+        <%= render(partial:"plans/show", locals:{plan:@plan,current_pub_user:@current_pub_user})%>
+
+        <%else%>
+
+        <p>non booked!!</p>
+
+        <%end%>
+
 
 <%end%>
 

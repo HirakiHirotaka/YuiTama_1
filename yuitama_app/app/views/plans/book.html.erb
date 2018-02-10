@@ -1,0 +1,20 @@
+<%= content_for(:maincontent)  do %>
+
+<h1>plans#book</h1>
+
+    <%= @plan.id%>
+
+    <%= @current_pub_user.name%>
+
+
+    <%if @user.bookedplan_id then%>
+
+        <% @plannum = @user.bookedplan_id%>
+        <% @temp = Plan.find(@plannum)%>
+        <%= @temp.content%>
+        <%= link_to("mypage","/users/#{@user.id}/mypage")%>
+
+
+        <%end%>
+
+<%end%>
