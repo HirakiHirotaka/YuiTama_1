@@ -8,7 +8,7 @@
     </div>
     <div class="col-md-6 align-self-center pt-1">
       <%=form_tag("/plans", method:"get", align:"center") do%>
-      <%= select_tag(:selected_val, options_for_select(["内容","ハッシュタグ"]), class:"plan-title")%>
+      <%= select_tag(:selected_val, options_for_select(["内容","ハッシュタグ"], selected:params[:selected_val]), class:"plan-title")%>
       <%= text_field_tag :search, params[:search],class:"plan-title" %>
       <%= submit_tag "検索", :name => nil,class:"plan-title" %>
       <%end%>
@@ -25,13 +25,13 @@
 
     <div class="row py-4">
     <%if @plans.length == 0%>
-      <div class="col-md-12 p-5">
+    <div class="col-md-12 p-5">
       <p class="plan-title text-center">
         検索結果はありません
       </p>
-  </div>
+    </div>
     <%end%>
-      <div class=" card-deck-wrapper">
+      <div class=" card-deck-wrapper px-4">
         <div class="card-deck">
           <%= render(partial: "index", collection:@plans)%>
         </div>
