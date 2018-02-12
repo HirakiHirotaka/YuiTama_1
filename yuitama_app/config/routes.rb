@@ -11,7 +11,8 @@ Rails.application.routes.draw do
   post "/utinaantyu/login" => "utinaantyus#login"
   get "/utinaantyus/login" => "utinaantyus#login_form"
   get "/utinaantyus/logout" =>"utinaantyus#logout"
-
+  get '/plans/:id/book' => 'plans#book'
+  get '/users/:user_id/:plan_id/cansel' => 'plans#cansel'
   get 'accept_plan/planMylist'
   get 'accept_plan/planDetail'
   get 'accept_plan/planList'
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
   get 'provide_plan/regiComp'
   get 'provide_plan/myPlanList'
 
+  resources :users
   get "users/index" => "users#index"
   get "users/:id" => "users#show"
   get "/user/signup" => "users#new"

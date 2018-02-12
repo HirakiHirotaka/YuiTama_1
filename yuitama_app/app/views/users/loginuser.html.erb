@@ -4,23 +4,55 @@
 
 <%= content_for(:maincontent) do%>
 
+<div class="container-fluid p-5 ">
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+      <div class="card">
+        <div class="card-header p-4">
+          <p class="plan-title">旅行者ログイン</p>
+          </div>
+        <div class="card-body">
+          <div class="card-text">
+
+
     <% if @error_message %>
         <%= @error_message %>
     <%end%>
 
 
-    <%= form_tag("/user/login") do%>
+    <%= form_tag("/user/login", class:"form-horizontal") do%>
 
-    <p>email</p>
 
-    <input name="email" value="<%= @email %>">
 
-    <p>password</p>
+  <div class="form-group">
+    <div class="col-md-3">
+      <%= label_tag :email, "メールアドレス", class:"form-content"%>
+    </div>
+    <div class=" col-md-9">
+      <%= text_field_tag :email, params[:email] , class:"form-content"%>
+    </div>
+  </div>
 
-    <input type="password" name="password" value="<%= @password %>">
+  <div class="form-group">
+    <div class=" col-md-3">
+      <%= label_tag :password, "パスワード" , class:"form-content"%>
+    </div>
+    <div class=" col-md-9">
+      <%= password_field_tag :password, params[:password] , class:"form-content"%>
+    </div>
+  </div>
 
-    <input type="submit" value="Send">
-
+  <div class="actions">
+    <div class=" col-md-offset-2 col-md-10 pt-4">
+      <%= submit_tag "ログイン", class:"form-content"%>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+  </div>
+  </div>
+</div>
     <%end%>
 
 <%end%>

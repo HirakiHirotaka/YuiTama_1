@@ -4,23 +4,76 @@
 
 <%= content_for(:maincontent) do%>
 
-    <p>user mypage</p>
-    <br>
-    <br>
+<div class="row py-4 justify-content-md-center">
+  <div class="col-md-8">
+    <div class="card">
+
+      <div class="card-header">
+        <div class="row pl-4">
+        <h1 class="pt-1 plan-title text-left"><strong>プロフィール</strong></h1>
+        <% if @current_pub_user != nil%>
+          <%if @user.id == @current_pub_user.id%>
+            <div class="pt-2 pl-4">
+            <%= link_to '編集', "/users/#{@user.id}/edit", style:"font-size:1.5vw" %>
+            </div>
+          <%end%>
+        <%end%>
+        </div>
+      </div>
+
+      <div class="card-body p-5 ">
+      <!-- ここに写真下側の文字 -->
+      <!--<div class="align-self-center p-5 col-md-6">-->
+
+        <div class="row">
+          <div class="col-md-3">
+            <p class="plan-content"><strong>名前：</strong></p>
+          </div>
+          <div class="col-md-9">
+            <p class="pb-5 plan-content"><%= @current_pub_user.name %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <p class="plan-content"><strong>メールアドレス：</strong></p>
+          </div>
+          <div class="col-md-9">
+            <p class="pb-5 plan-content"><%= @current_pub_user.email %></p>
+          </div>
+        </div>
+
+    </div>
+  </div>
+</div>
+</div>
 
 
-    <p>your name</p>
-    <h2><%= @current_pub_user.name%></h2>
+<div class="row py-4 justify-content-md-center">
+  <div class="col-md-8">
+    <div class="card">
 
+      <div class="card-header">
+        <div class="row pl-4">
+        <h1 class="pt-1 plan-title text-left"><strong>確定済みプラン</strong></h1>
+        </div>
+      </div>
 
-    <p>your ID</p>
-    <h2><%= @current_pub_user.id%></h2>
+      <div class="card-body p-5 ">
+      <% if @current_pub_user.bookedplan_id then%>
 
+      <div class=" card-deck-wrapper px-4">
+        <div class="card-deck">
+        <!-- render処理のみ-->
+          <%= render(partial: "plans/index", collection:@plans)%>
+        </div>
+      </div>
 
-    <p>your email</p>
-    <h2><%= @current_pub_user.email%></h2>
+        <%else%>
 
+        <%=link_to "プランを探す", plans_path, class:"btn btn-primary btn-lg plan-title", style:"font-size:1.5vw;color:white;"%>
 
+        <%end%>
+      </div>
+      </div>
+      </div>
 <%end%>
-
-
