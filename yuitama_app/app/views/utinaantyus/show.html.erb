@@ -1,30 +1,83 @@
 <%= content_for(:maincontent) do %>
+<%if notice != nil%>
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @utinaantyu.name %>
-</p>
-
-<p>
-  <strong>Age:</strong>
-  <%= @utinaantyu.age %>
-</p>
-
-<p>
-  <strong>Mailaddress:</strong>
-  <%= @utinaantyu.mailaddress %>
-</p>
-
-<h2>この方のプラン</h2>
-<% @plans = Plan.where(creator_id: @utinaantyu.id) %>
-<%= render :partial => "plans/index", collection:@plans %>
-
-
-<% if @currentuser != nil%>
-  <%if @utinaantyu.id == @currentuser.id%>
-    <%= link_to 'Edit', edit_utinaantyu_path(@utinaantyu) %>
-  <%end%>
 <%end%>
+
+<div class="row py-4 justify-content-md-center">
+  <div class="col-md-8">
+    <div class="card">
+
+      <div class="card-header">
+        <div class="row pl-4">
+        <h1 class="pt-1 plan-title text-left"><strong>プロフィール</strong></h1>
+        <% if @current_utinaantyu != nil%>
+          <%if @utinaantyu.id == @current_utinaantyu.id%>
+            <div class="pt-2 pl-4">
+            <%= link_to '編集', edit_utinaantyu_path(@utinaantyu), style:"font-size:1.5vw" %>
+            </div>
+          <%end%>
+        <%end%>
+        </div>
+      </div>
+
+      <div class="card-body p-5 ">
+      <!-- ここに写真下側の文字 -->
+      <!--<div class="align-self-center p-5 col-md-6">-->
+
+        <div class="row">
+          <div class="col-md-3">
+            <p class="plan-content"><strong>名前：</strong></p>
+          </div>
+          <div class="col-md-9">
+            <p class="pb-5 plan-content"><%= @utinaantyu.name %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <p class="plan-content"><strong>年齢：</strong></p>
+          </div>
+          <div class="col-md-9">
+            <p class="pb-5 plan-content"><%=@utinaantyu.age%></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-3">
+            <p class="plan-content"><strong>メールアドレス：</strong></p>
+          </div>
+          <div class="col-md-9">
+            <p class="pb-5 plan-content"><%= @utinaantyu.mailaddress %></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-3">
+            <p class="plan-content"><strong>自己紹介：</strong></p>
+          </div>
+          <div class="col-md-9">
+            <p class="pb-5 plan-content"><%= @utinaantyu.introduction %></p>
+          </div>
+        </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="row py-4 justify-content-md-center">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-body p-5 ">
+<h2 class="plan-title">この方のプラン</h2>
+<% @plans = Plan.where(creator_id: @utinaantyu.id) %>
+<div class=" card-deck-wrapper px-4">
+  <div class="card-deck">
+    <%= render :partial => "plans/index", collection:@plans %>
+  </div>
+</div>
+  </div>
+  </div>
+</div>
+</div>
+
+
 
 <% end %>

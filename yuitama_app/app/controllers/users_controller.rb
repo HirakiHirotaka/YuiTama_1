@@ -17,11 +17,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(name:params[:name],email:params[:email],password:params[:password])
+    @user = User.new(user_params)
     if @user.save then
       session[:pub_user_id] = @user.id
       flash[:notice] = "cpmlete your register"
-      redirect_to "/users/#{@user.id}"
+      redirect_to "/plans"
     else
       render("/users/new")
     end
@@ -33,11 +33,9 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find_by(id: params[:id])
-    @user.name = params[:name]
-    @user.email = params[:email]
-    if @user.save then
+    if @user.update(user_params) then
       flash[:notice] = "ユーザー情報を編集しました"
-      redirect_to "/users/#{@user.id}/"
+      redirect_to "/users/#{@user.id}/mypage"
     else
       render("/users/edit")
     end
@@ -78,6 +76,17 @@ class UsersController < ApplicationController
   end
 
   def mypage
-
+    @user = User.find_by(id: params[:id])
+      if @current_pub_user.bookedplan_id then
+        num = @current_pub_user.bookedplan_id
+        @plan = Plan.find(num)
+        @plans = []#plans配列を作成 render partial collection を使いたいため配列にしたい
+        @plans << @plan#plans配列に取ってきた@planを挿入
+      end
   end
+  private
+  def user_params
+      params.require(:user).permit(:name,:email,:password)
+    end
+
 end

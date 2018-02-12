@@ -35,7 +35,19 @@
         <%end%>
         <p class="plan-content"><%=@plan.content%></p>
       </div>
-
+            <%if @current_pub_user != nil%>
+            <%if @current_pub_user.bookedplan_id then%>
+            <div class="text-right">
+              <div style="color:#0000ff;"><p class="plan-content" >このプランはブックマーク済み</p>
+                <%= link_to("ブックマークを解除","/users/#{@current_pub_user.id}/#{@plan.id}/cansel", style:"font-size:1.5vw;color:0000ff;")%>
+              </div>
+            </div>
+                <%else%>
+            <div class="text-right">
+                <%= link_to("このプランをブックマーク","#{@plan.id}/book", style:"font-size:1.0vw;color:0000ff;")%>
+            </div>
+            <%end%>
+            <%end%>
       </div>
       <div class="card-footer">
         <p class="text-right mt-2">
