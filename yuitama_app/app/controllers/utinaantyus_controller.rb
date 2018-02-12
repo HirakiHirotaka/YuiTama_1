@@ -1,6 +1,6 @@
 class UtinaantyusController < ApplicationController
   before_action :set_utinaantyu, only: [:show, :edit, :update, :destroy]
-  #before_action :set_currentuser
+  before_action :set_currentuser
   before_action :authenticate_user, only: [:edit, :update]
   before_action :forbid_login_user, only: [:login, :new, :create, :login_form]
   before_action :ensure_correct_user, only: [:edit, :update]
@@ -84,7 +84,7 @@ class UtinaantyusController < ApplicationController
   def logout
     session[:user_id] = nil
     flash[:notice]="ログアウトしました。"
-    redirect_to("/utinaantyus/login")
+    redirect_to("/home/login")
   end
 
   private
@@ -95,7 +95,7 @@ class UtinaantyusController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def utinaantyu_params
-      params.require(:utinaantyu).permit(:name, :age, :mailaddress, :password)
+      params.require(:utinaantyu).permit(:name, :age, :mailaddress, :password, :introduction)
     end
 
     def set_currentuser

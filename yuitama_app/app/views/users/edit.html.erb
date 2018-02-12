@@ -11,15 +11,7 @@
 
 
     <p>user edit</p>
+    <%= render 'form', user: @user %>
 
-    <%= form_tag("/users/#{params[:id]}/update") do %>
-
-    <p>user name</p>
-    <input value="<%=@user.name%>", name="name">
-    <p>email</p>
-    <input value="<%=@user.email%>", name="email">
-    <input type="submit" value="update">
-
-    <%end%>
 
 <%end%>
