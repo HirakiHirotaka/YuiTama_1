@@ -1,32 +1,48 @@
 <%= content_for(:maincontent)  do %>
-<div class="container-fluid p-5">
-  <div class="row justify-content-center">
+
+<div class="container-fluid p-5 justify-content-center">
+  <div class="col-md-offset-3 col-md-6">
     <div class="card">
       <div class="card-body">
 
+  <div class="row">
+    <div class="col-md-offset-3 col-md-6">
+    <p class="plan-content">各種ログイン</p>
+      </div>
+  </div>
+  <div class="row py-4 justify-content-center">
     <div class="col-md-6">
-      <%= link_to image_tag("login-button.png", class:"img-responsive", size:"250x75"), "/utinaantyus/login" %>
+      <%= link_to image_tag("Utinaantyus-Login.png", class:"img-responsive img-thumbnail", size:"500x150"), "/utinaantyus/login" %>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row py-4 justify-content-center">
     <div class="col-md-6">
-      <%= link_to image_tag("login-button.png", class:"img-responsive", size:"250x75"), "/user/login" %>
+      <%= link_to image_tag("Traveler-Login.png", class:"img-responsive img-thumbnail", size:"500x150"), "/user/login" %>
     </div>
   </div>
-  <div class="row justify-content-center">
+
+  <div class="row pt-5">
+    <div class="col-md-offset-3 col-md-6">
+    <p class="plan-content">各種 新規登録</p>
+      </div>
+  </div>
+
+  <div class="row py-4 justify-content-center">
     <div class="col-md-6">
-      <p><a class="btn btn-primary btn-lg" href="/utinaantyus/new" role="button">新規登録 &raquo;</a></p>
+      <%= link_to image_tag("Utinaantyus-NewRegistration.png", class:"img-responsive img-thumbnail", size:"500x150"), "/utinaantyus/new" %>
     </div>
   </div>
-  <div class="row justify-content-center">
+  <div class="row py-4 justify-content-center">
     <div class="col-md-6">
-      <%= link_to image_tag("newRegistration-button.png", class:"img-responsive", size:"250x75"), "/utinaantyus/new" %>
+      <%= link_to image_tag("Traveler-NewRegistration.png", class:"img-responsive img-thumbnail", size:"500x150"), new_user_path %>
     </div>
   </div>
 
       </div>
+      </div>
     </div>
 </div>
+
 <% end %>
 
 <!-- <%= button_to "homeへ戻る", {:controller => 'home', :action => 'index'}, :method => :get %>

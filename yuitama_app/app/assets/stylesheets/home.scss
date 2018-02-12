@@ -17,6 +17,26 @@ body {font-family: 'Segoe Script',
   background-image: image-url("photo0001-1976.jpg");
   background-repeat: no-repeat;
   background-size: cover;
+  position: relative;
+  margin-bottom: 0rem!important;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.jumbotron:before {
+  content: '';
+  background: inherit;
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  z-index: -1;
 }
 
 p  {font-size: large}
