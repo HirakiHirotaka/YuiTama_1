@@ -9,11 +9,14 @@ class PlansController < ApplicationController
   # GET /plans.json
   def index()
     @counter = 0
-    if params[:search]
-      if params[:selected_val] == "内容"
-        @plans = Plan.where(["content LIKE ?", "%#{params[:search]}%"]) #コンテント用
-      elsif params[:selected_val] == "ハッシュタグ"
-        @plans = Plan.where(["content LIKE ?", "%##{params[:search]}%"]) #ハッシュタグ用
+    searchword = params[:search]
+    searchgenre = params[:selected_val]
+
+    if searchword
+      if searchgenre == "内容"
+        @plans = Plan.where(["content LIKE ?", "%#{searchword}%"]) #コンテント用
+      elsif searchgenre == "ハッシュタグ"
+        @plans = Plan.where(["content LIKE ?", "%##{searchword}%"]) #ハッシュタグ用
       end
       render
     else
@@ -97,6 +100,30 @@ class PlansController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+    def book
+      if @current_pub_user then
+        @plan = Plan.find(params[:id])
+        @user = User.find_by(id: @current_pub_user.id)
+        @user.bookedplan_id = @plan.id
+        @user.save
+        redirect_to "/users/#{@user.id}/mypage"
+      else
+        flash[:notice] = "You should need logged in !!"
+      end
+    end
+
+    def cansel
+      if @current_pub_user then
+        @plan = Plan.find(params[:plan_id])
+        @user = User.find_by(id: @current_pub_user.id)
+        @user.bookedplan_id = nil
+        @user.save
+        redirect_to "/users/#{@user.id}/mypage"
+      else
+        flash[:notice] = "You should need logged in !!"
+      end
+    end
 
   private
     # Use callbacks to share common setup or constraints between actions.
