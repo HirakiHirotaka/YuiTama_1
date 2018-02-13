@@ -65,6 +65,15 @@
 
         <div class="row py-2">
           <div class="col-md-3">
+            <%= form.label "パスワード：", class:"control-label plan-content", style:"font-weight:bold" %>
+          </div>
+          <div class="col-md-9">
+            <%= form.text_field :password, id: :utinaantyu_password,:class => "form-control",style:"font-size:1.5vw" %>
+          </div>
+        </div>
+
+        <div class="row py-2">
+          <div class="col-md-3">
             <%= form.label "自己紹介：", class:"control-label plan-content", style:"font-weight:bold" %>
           </div>
           <div class="col-md-9">
