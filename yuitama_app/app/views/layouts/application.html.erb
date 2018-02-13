@@ -53,10 +53,7 @@
             <li class="nav-item active">
               <a class="nav-link" href="/provide_plan/planInput">プラン登録</a>
             </li>
-            <li class="nav-item active">
-              <a class="nav-link" href="/users/index">ユーザー一覧</a>
-            </li>
-
+  
           <li class="nav-item dropdown">
             <% if session[:user_id]%>
               <% currentuser = Utinaantyu.find(session[:user_id])%>
