@@ -48,11 +48,24 @@
             </div>
             <%end%>
             <%end%>
-      </div>
-      <div class="card-footer">
-        <p class="text-right mt-2">
+        <p class="text-right mt-2 plan-content">
           提案者: <%= link_to("#{Utinaantyu.find(plan.creator_id).name}", "/utinaantyus/#{Utinaantyu.find(plan.creator_id).id}" ) %>
         </p>
+      </div>
+      <div class="card-footer">
+        <div class="row p-2">
+          <div class="col-md-4">
+
+            <%= link_to image_tag("plan_edit",class:"img-responsive"), edit_plan_path(@plan) %>
+          </div>
+          <div class="col-md-4">
+            <%= link_to image_tag("plan_delete",class:"img-responsive"),@plan, method: :delete, data:{confirm: '本当に削除しますか？'} %>
+          </div>
+          <div class="col-md-4">
+            <%= link_to image_tag("_plans",class:"img-responsive"), plans_path %>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
